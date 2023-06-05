@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thu nhập thuế của nhân viên</title>
+</head>
+<body>
+<script>
+    let thuNhap = +prompt("Nhập số lương nhân viên");
+    let thue = 0;
+    let sum = 0;
+    if (thuNhap >= 15000000) {
+        thue = thuNhap * 0.2;
+        sum = thuNhap - thue;
+    } else if (7000000 < thuNhap < 15000000) {
+        thue = thuNhap * 0.1;
+        sum = thuNhap - thue;
+    } else if (thuNhap < 7000000) {
+        thue = thuNhap * 0.05;
+        sum = thuNhap - thue;
+    }
+    document.write("Thuế của nhân viên là : " + thue + "<br>");
+    document.write("Tổng thực thu nhập của nhân là : " + sum);
+</script>
+</body>
+</html>

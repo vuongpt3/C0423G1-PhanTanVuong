@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width: 400px;height: 650px;background-color: darkred;margin: 0 auto">
+    <div id="background" style="width: 90%;height: 99%;background-color: white;margin: 0 auto;border-radius: 5%">
+        <div style="height: 50px;width: 100%;background-color: black;border-radius: 15px" id="backgroundTip">
+            <p style="color: white;text-align: center;font-size: 30px">TIP COCULATOR</p>
+        </div>
+        <div style="margin-left: 20px;font-size: 20px">
+            <p>Hóa đơn của bạn là :</p>
+            $<input type="text" id="txtGiaTien" placeholder="Nhập số tiền thanh toán"
+                    style="height: 40px;width: 300px;border-radius: 10px">
+            <p>Đánh giá dịch vụ của bạn?</p>
+            <select onchange="mucDoHaiLong()" id="tienTip"
+                    style="height: 70px;width: 300px;font-size: 30px;border-radius: 10px">
+                <option value="ratTot">Rất tốt: 30%</option>
+                <option value="tot">Tốt: 20%</option>
+                <option value="tamDuoc">Tạm được: 15%</option>
+                <option value="te">Tệ: 10%</option>
+                <option value="ratTe">Rất tệ: 5%</option>
+            </select>
+            <p>Có bao nhiêu người chia sẻ hóa đơn ?</p>
+            <input type="text" id="txtPeople" placeholder="Nhập số người"
+                   style="width: 250px;height: 40px;font-size: 15px;border-radius: 10px"> người<br><br>
+            <button id="btnCalculate"
+                    style="height: 50px; width: 200px;background-color: darkred; color: white;border-radius: 10px;border: 3px solid black;margin-left: 60px;font-size: 20px"
+                    onclick="calculate()">
+                <b>CALCULATE</b></button>
+            <h2 style="text-align: center">SỐ TIỀN TÍP LÀ</h2>
+            <p id="result" style="font-size: 30px;text-align: center"></p>
+            <h5 style="text-align: center">each</h5>
+        </div>
+    </div>
+</div>
+<div>
+    <button id="btnChange1" onclick="changecolorblack()">Chuyển nền đen</button>
+    <button id="btnChange2" onclick="changecolorblue()">Chuyển nền xanh</button>
+</div>
+<script>
+
+    function calculate() {
+        let tienBill = document.getElementById("txtGiaTien").value;
+        let soNguoi = document.getElementById("txtPeople").value;
+        let tienTip = document.getElementById("tienTip").value;
+        let sum = 0;
+        if (tienBill === " " || soNguoi === " ") {
+            alert("Vui lòng nhập số tiền thanh toán hoặc số người chia sẻ bill");
+        } else if (tienTip === "ratTot") {
+            sum = tienBill * 0.3 / soNguoi;
+        } else if (tienTip === "tot") {
+            sum = tienBill * 0.2 / soNguoi;
+        } else if (tienTip === "tamDuoc") {
+            sum = tienBill * 0.15 / soNguoi;
+        } else if (tienTip === "te") {
+            sum = tienBill * 0.1 / soNguoi;
+        } else if (tienTip === "ratTe") {
+            sum = tienBill * 0.05 / soNguoi;
+        }
+        document.getElementById("result").innerHTML = sum;
+        document.getElementById("btnCalculate").style.backgroundColor = 'black';
+    }
+
+    function changecolorblack() {
+        document.getElementById("background").style.background = 'black';
+        document.getElementById("background").style.color = 'white';
+        document.getElementById("background").style.borderColor = 'white';
+        document.getElementById("backgroundTip").style.background = 'red';
+    }
+</script>
+</body>
+</html>

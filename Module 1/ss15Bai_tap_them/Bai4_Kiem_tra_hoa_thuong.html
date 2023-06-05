@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chữ hoa và chữ thường</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi kí tự");
+
+    function checkString(str) {
+        let chuThuong = 0;
+        let chuHoa = 0;
+        let arr = str.split("");
+        document.write(arr);
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === arr[i].toUpperCase()) {
+                chuHoa++;
+            }else if (arr[i] === arr[i].toLowerCase() ) {
+                chuThuong++;
+            }
+        }
+        if (chuHoa === chuThuong) {
+            alert("True");
+        } else {
+            alert("False");
+        }
+    }
+
+    checkString(str);
+</script>
+</body>
+</html>

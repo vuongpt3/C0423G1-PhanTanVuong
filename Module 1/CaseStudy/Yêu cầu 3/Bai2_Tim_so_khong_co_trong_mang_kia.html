@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số mảng này có bên mảng kia không</title>
+</head>
+<body>
+<script>
+    let arrA = [];
+    let arrB = [];
+    let result = [];
+    while (true) {
+        let number = +prompt("Nhập độ dài mảng A");
+        if (!isNaN(number) && number > 0) {
+            for (let i = 0; i < number; i++) {
+                arrA.push(+prompt("Nhập phần tử mảng A tại vị trí : " + (i + 1)));
+            }
+            break;
+        } else {
+            alert("Độ dài của mảng là số và lớn hơn 0 ; Nhập lại");
+        }
+    }
+    while (true) {
+        let number = +prompt("Nhập độ dài mảng A");
+        if (!isNaN(number) && number > 0) {
+            for (let i = 0; i < number; i++) {
+                arrB.push(+prompt("Nhập phần tử mảng B tại vị trí : " + (i + 1)));
+            }
+            break;
+        } else {
+            alert("Độ dài của mảng là số và lớn hơn 0 ; Nhập lại");
+        }
+    }
+    document.write("Phần tử mảng A là : " + arrA + "<br>");
+    document.write("Phần tử mảng B là : " + arrB + "<br>");
+    for (let i = 0; i < arrB.length; i++) {
+        if (!arrA.includes(arrB[i])) {
+            result.push(arrB[i]);
+        }
+    }
+    document.write("Các phần tử mảng B không có trong mảng A là : " + result);
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra in hoa và thường</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập vào chuỗi kiểm tra");
+    function checkString(string){
+        let chuThuong = 0;
+        let chuHoa = 0;
+        let arr = string.split("");
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === arr[i].toUpperCase()){
+                chuHoa++;
+            }else if (arr[i] === arr[i].toLowerCase()){
+                chuThuong++;
+            }
+        }
+        if (chuThuong === chuHoa){
+            alert("True");
+        }else {
+            alert("False");
+        }
+    }
+    checkString(string);
+</script>
+</body>
+</html>

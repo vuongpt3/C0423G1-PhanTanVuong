@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lượng ký tự chung ở chúng</title>
+</head>
+<body>
+<script>
+    let str1 = prompt("Nhập chuỗi thứ nhất");
+    let str2 = prompt("Nhập chuỗi thứ hai");
+    let arr1 = str1.split("");
+    let arr2 = str2.split("");
+    let count = 0;
+    let array1 = [];
+    let array2 = [];
+    for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+            if (arr1[i] === arr2[j]) {
+                array1.push(arr1[i]);
+                arr1.splice(arr1[i], 1);
+                arr2.splice(arr2[j], 1);
+                count++;
+            }
+        }
+    }
+    for (let i = 0; i < array1.length; i++) {
+        if (!array2.includes(array1[i])){
+            array2.push(array1[i]);
+        }
+    }
+    document.write("2 xâu có " + count + " kí tự chung" + "<br>");
+    document.write("Các kí tự đó là : " + array2);
+</script>
+</body>
+</html>

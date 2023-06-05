@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị chuỗi nhị phân</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập số");
+    function checkNhiPhan(number){
+        if (number === 0){
+            return '0';
+        }
+        let nhiPhan = '';
+        while (number > 0){
+            nhiPhan = number % 2 + nhiPhan;
+            number = Math.floor(number / 2);
+        }
+        return nhiPhan;
+    }
+    let nhiPhan = checkNhiPhan(number);
+    document.write("Dãy số nhị phân của " + number + " là " + nhiPhan);
+</script>
+</body>
+</html>

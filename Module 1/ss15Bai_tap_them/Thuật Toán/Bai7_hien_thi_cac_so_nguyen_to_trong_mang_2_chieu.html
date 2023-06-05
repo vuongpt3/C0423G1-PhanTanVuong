@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị các số nguyên tố trong mảng 2 chiều ra mảng 1 chiều và sắp xếp từ nhỏ đến lớn</title>
+</head>
+<body>
+<script>
+    function addArray() {x``
+        let arr = [];
+        while (true) {
+            let numRows = parseInt(prompt("Nhập độ dài của mảng :"));
+            if (!isNaN(numRows) && numRows > 0) {
+                for (let i = 0; i < numRows; i++) {
+                    let row = [];
+                    let numCols = parseInt(prompt("Nhập số lượng phần tử mảng thứ : " + (i + 1)));
+                    for (let j = 0; j < numCols; j++) {
+                        let element = parseInt(prompt("Nhập phần tử cho hàng " + i + ", cột " + j + ":"));
+                        row.push(element);
+                    }
+
+                    arr.push(row);
+                }
+                break;
+            } else {
+                alert("Số hàng phải là số và lớn hơn 0 , Nhập lại");
+            }
+        }
+
+        return arr;
+
+    }
+
+    function checkSNT(number) {
+        if (number < 2) {
+            return false;
+        } else {
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    function checkValue(array1) {
+        let array = [];
+        for (let i = 0; i < array1.length; i++) {
+            for (let j = 0; j < array1[i].length; j++) {
+                if (checkSNT(array1[i][j])) {
+                    array.push(array1[i][j]);
+                }
+            }
+        }
+        return array;
+    }
+
+    let numberArray = addArray();
+    console.log(numberArray);
+    document.write("Mảng 2 chiều vừa nhập vào là : " + numberArray + "<br>");
+    let checkNumberSNT = checkValue(numberArray);
+    checkNumberSNT.sort(function (a, b) {
+        return a - b;
+    })
+    document.write("Các số nguyên tố có trong mảng là : " + checkNumberSNT);
+
+</script>
+</body>
+</html>

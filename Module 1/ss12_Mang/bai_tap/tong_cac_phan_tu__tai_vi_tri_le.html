@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổng các phần tử tại vị trí lẻ</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài của mảng");
+    let sum = 0;
+    let arr = [];
+    for (let i = 0; i < number; i++) {
+        arr.push(+prompt("Nhập phần tử của mảng tại vị trí : " + (i + 1)));
+    }
+    document.write("Các phần tử trong mảng là : " + arr);
+
+    for (let i = 1; i < arr.length; i+=2) {
+        if (arr[i] % 2 === 0){
+            sum += arr[i];
+        }
+    }
+    document.write("Tổng các số tại vị trí lẻ là : " + sum);
+</script>
+</body>
+</html>

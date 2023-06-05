@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra chuỗi ký tự rồi tách ra , chuyển in hoa về chữ thường</title>
+</head>
+<body>
+<script>
+    function addString(str){
+        str = prompt("Nhập vào chuỗi để kiểm tra");
+        let string = "";
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === str[i].toUpperCase()){
+                string += " " + str[i].toLowerCase();
+            }else {
+                string += str[i];
+            }
+        }
+        return string;
+    }
+    let stringArrray = addString();
+    document.write("Chuỗi sau khi sửa là :" + stringArrray);
+</script>
+</body>
+</html>

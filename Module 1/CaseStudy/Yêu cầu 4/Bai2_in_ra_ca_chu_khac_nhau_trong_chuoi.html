@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị các chuỗi khác nhau trong mảng</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi để kiểm tra");
+    let arr = str.split("");
+    let array = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (!array.includes(arr[i])) {
+            array.push(arr[i]);
+        }
+    }
+    document.write("Có " + array.length + " ký tự khác nhau" + "\nCác ký tự khác nhau trong mảng là :" + array);
+
+</script>
+</body>
+</html>

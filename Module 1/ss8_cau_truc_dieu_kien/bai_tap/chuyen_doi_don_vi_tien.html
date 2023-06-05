@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi đơn vị tiền tệ</title>
+    <style>
+        .input {
+            text-align: left;
+            margin-left: 30px;
+        }
+        .input p {
+            position: absolute;
+            margin-top: 16px;
+            margin-left: 20px;
+            background-color: white;
+            padding: 5px;
+            font-size: 20px;
+        }
+        .input input {
+            margin-top: 30px;
+            border: none;
+            border-bottom: 3px solid blue;
+            text-align: center;
+        }
+        .input select{
+            position: absolute;
+            margin-left: -110px;
+            margin-top: 50px;
+            border: none;
+        }
+         .output button {
+            height: 50px;
+            width: 200px;
+            border-radius: 20px;
+            font-size: 20px;
+             margin-top: 20px;
+             background-color: limegreen;
+             color: black;
+             border: none;
+        }
+         .output img {
+             position: absolute;
+             margin-left: 80px;
+             margin-top: -60px;
+         }
+         .output select {
+             position: absolute;
+             margin-left: 440px;
+             margin-top: -50px;
+             height: 40px;
+             border: none;
+         }
+         .output input {
+             position: absolute;
+             margin-left: 145px;
+             margin-top: -75px;
+             border: none;
+             border-bottom: 3px solid greenyellow;
+             text-align: center;
+         }
+         .output h2 {
+             position: absolute;
+             margin-top:-160px;
+             margin-left: 520px;
+             background-color: white;
+             padding: 5px;
+         }
+    </style>
+</head>
+<body style="background: green">
+<div style="text-align: center;margin-left: 350px; margin-top : 250px;height: 200px;width: 60%;background: white;border-radius: 50px">
+   <div class="input">
+       <p>Số tiền</p>
+       <input type="text" id="txtInput"  placeholder="Nhập số tiền muốn chuyển đổi"
+              style="height: 70px;width: 400px;border-radius: 10px;font-size: 20px">
+       <select id="selectInput" style="height: 40px;width: 100px;border-radius: 10px">
+           <option value="USD">USD (Đô La)</option>
+           <option value="JPY">JPY (Yên Nhật)</option>
+           <option value="VND">VND (Việt Nam Đồng)</option>
+           <option value="RMB">RMB (Nhân dân tệ)</option>
+           <option value="GBP">GBP (Bảng Anh)</option>
+       </select>
+   </div>
+       <div class="output">
+           <img src="https://static.vecteezy.com/system/resources/previews/010/366/162/original/arrow-icon-arrows-sign-black-arrows-free-png.png"
+                style="height: 50px; width: 70px;">
+           <input type="text" id="result" name="number" placeholder="Số tiền sau khi chuyển đổi"
+                  style="height: 70px;width: 400px;border-radius: 10px;font-size: 20px;">
+           <select id="selectOutput" style="height: 30px;width: 100px;border-radius: 10px">
+               <option value="USD">USD (Đô La)</option>
+               <option value="JPY">JPY (Yên Nhật)</option>
+               <option value="VND">VND (Việt Nam Đồng)</option>
+               <option value="RMB">RMB (Nhân dân tệ)</option>
+               <option value="GBP">GBP (Bảng Anh)</option>
+           </select>
+           <button onclick="changeMoney()">Chuyển đổi</button>
+           <h2>Kết quả</h2>
+       </div>
+</div>
+<script>
+    function Covert(selectInput, selectOutput) {
+        let exchangeRates = {
+            USD: {
+                JPY: 110,
+                VND: 23000,
+                RMB: 6.5,
+                GBP: 0.8
+            },
+            JPY: {
+                USD: 0.0091,
+                VND: 209.16,
+                RMB: 0.059,
+                GBP: 0.0071
+            },
+            VND: {
+                USD: 0.000043,
+                JPY: 0.0048,
+                RMB: 0.00027,
+                GBP: 0.000038
+            },
+            RMB: {
+                USD: 0.15,
+                JPY: 16.92,
+                VND: 3722.31,
+                GBP: 0.12
+            },
+            GBP: {
+                USD: 1.25,
+                JPY: 141.07,
+                VND: 26131.57,
+                RMB: 8.15
+            }
+        };
+
+        return exchangeRates[selectInput][selectOutput];
+    }
+
+    function changeMoney() {
+        let money = document.getElementById("txtInput").value;
+        let selectInput = document.getElementById("selectInput").value;
+        let selectOutput = document.getElementById("selectOutput").value;
+
+        let changeMoney = Covert(selectInput, selectOutput);
+        let exChangeMoney = money * changeMoney;
+        document.getElementById("result").value = exChangeMoney + " " + selectOutput;
+    }
+</script>
+</body>
+</html>

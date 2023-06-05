@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tăng dần , giảm dần</title>
+</head>
+<body>
+<script>
+
+
+    function checkArray() {
+        let number = +prompt("Nhập vào dãy số");
+        let flagTangDan = false;
+        let flagGiamDan = false;
+        let arr = [];
+        for (let i = 0; i < number; i++) {
+            arr.push(+prompt("Nhập phần tử trong mảng tại vị trí : " + (i + 1)));
+        }
+        document.write("Mảng sau khi thêm phần tử : " + arr);
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i+1]){
+                flagGiamDan = true;
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < arr[i+1]){
+                 flagTangDan = true;
+            }
+        }
+        if (flagGiamDan === true && flagTangDan === false){
+            alert("Yes");
+        }
+        if (flagTangDan === true && flagGiamDan === false){
+            alert("Yes");
+        }if (flagTangDan === true && flagGiamDan === true){
+            alert("NO")
+        }
+    }
+    checkArray();
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function demSoVong(L, R) {
+        let count = 0;
+
+        for (let num = L; num <= R; num++) {
+            let soDauTien = Number(String(num)[0]);
+            let soCuoi = Number(String(num).slice(-1));
+
+            if (soDauTien === soCuoi) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    let L = +prompt("Nhập số nguyên dương L");
+    let R = +prompt("Nhập số nguyên dương R");
+    const result = demSoVong(L, R);
+    document.write("Số vòng trong đoạn " + L + " và " + R + " là " + result);
+
+</script>
+</body>
+</html>

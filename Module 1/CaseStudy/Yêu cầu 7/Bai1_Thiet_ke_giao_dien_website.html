@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thiết kế giao diện web site</title>
+    <script src="https://kit.fontawesome.com/ba60b82b89.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            width: 100%;
+            height: 100px;
+            background-color: gray;
+            border-bottom: 5px solid black;
+            text-align: center;
+        }
+        .bodyLeft {
+            width: 25%;
+            height: 500px;
+            border: none;
+            float: left;
+            border-right: 5px solid black;
+            /*display:  block;*/
+        }
+        .header p{
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .header .https {
+            height: 35px;
+            width: 70%;
+            border-radius: 15px;
+            border: none;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 15px;
+            text-indent: 30px;
+        }
+        .header .fa-magnifying-glass {
+            position: absolute;
+            right: 220px;
+            margin-top: 15px;
+        }
+        .header .search {
+            height: 40px;
+            width: 7%;
+            border-radius: 45%;
+            text-indent: 30px;
+            margin-right: -50px;
+        }
+        .body .bodyLeft ul {
+            padding-top: 20px;
+        }
+        .body .bodyLeft ul li {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .body .bodyLeft ul li select {
+            height: 40px;
+            width: 150px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px black;
+        }
+        .body .bodyLeft ul li select:hover{
+            background: linear-gradient(#e66465, #9198e5);
+            color: white;
+        }
+        .body {
+            height: 500px;
+            width: 100%;
+            border-bottom: 4px solid black;
+            float: left;
+        }
+        .bodyRight {
+            height: 500px;
+            width: 74%;
+            /*margin-left:25%;*/
+            float: left;
+        }
+
+        .boduModule{
+            height: 100px;
+            width: 100%;
+            display: flex;
+            border-bottom: 4px solid black;
+        }
+        .boduModule img {
+            height: 100px;
+            width: 300px;
+            margin-left: 40px;
+        }
+        .boduModule h2 {
+            margin-left: 20%;
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <p>A Web Page</p>
+        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+        <a href="#"><i class="fa-solid fa-arrow-right fa-flip-horizontal fa-2xl" style="margin-left: -150px;margin-right: 10px"></i></a>
+        <a href="#"><i class="fa-solid fa-arrow-right fa-2xl" style="margin-right: 10px"></i></a>
+        <a href="#"><i class="fa-solid fa-xmark fa-2xl" style="margin-right: 10px"></i></a>
+        <a href="https://www.google.com/"><i class="fa-solid fa-house fa-xl"></i></a>
+    <input type="text" class="https" placeholder="https://">
+    <input type="text" class="search" placeholder="Search">
+</div>
+<div class="boduModule">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Google_wordmark.gif">
+    <h2>Hệ thống quản lý bài tập CaseStude Module 1</h2>
+</div>
+<div class="body">
+    <div class="bodyLeft">
+        <ul>
+            <li><select>
+                <option>Bài tập 1</option>
+                <option>Bài tập 2</option>
+                <option>Bài tập 3</option>
+            </select></li>
+            <li><select>
+                <option>Bài tập 2</option>
+                <option>Bài tập 1</option>
+                <option>Bài tập 3</option>
+            </select></li>
+            <li><select>
+                <option>Bài tập 3</option>
+                <option>Bài tập 2</option>
+                <option>Bài tập 1</option>
+            </select></li>
+            <li><select>
+                <option>Bài tập 4</option>
+                <option>Bài tập 5</option>
+                <option>Bài tập 6</option>
+            </select></li>
+            <li><select>
+                <option>Bài tập 5</option>
+                <option>Bài tập 6</option>
+                <option>Bài tập 7</option>
+            </select></li>
+        </ul>
+    </div>
+    <div class="bodyRight">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ukHK1GVyr0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+<script>
+
+</script>
+</body>
+</html>

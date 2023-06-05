@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra giá trị bình phương</title>
+</head>
+<body>
+<script>
+
+    function checkArray() {
+        while (true) {
+            let number = +prompt("Nhập vào dãy số");
+            if (number % 2 === 0){
+                let arr = [];
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử trong mảng tại vị trí : " + (i + 1)));
+                }
+                for (let i = 0; i < arr.length; i++) {
+                    if (Math.pow(arr[i + arr.length / 2], 2) === arr[i]) {
+                        alert("Đúng");
+                        break;
+                    } else {
+                        alert("Sai");
+                    }
+                }
+                break;
+            }
+            else {
+                alert("Nhập lại");
+            }
+        }
+    }
+
+    checkArray();
+</script>
+</body>
+</html>

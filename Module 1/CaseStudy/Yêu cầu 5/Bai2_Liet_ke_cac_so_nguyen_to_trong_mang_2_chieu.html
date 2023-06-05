@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liệt kê các số nguyên tố trong mảng 2 chiều , đếm số lượng số nguyên tố đó</title>
+</head>
+<body>
+<script>
+    function addValueArray() {
+        let arr = [];
+        while (true) {
+            let numRows = parseInt(prompt("Nhập độ dài của mảng cha :"));
+            if (!isNaN(numRows) && numRows > 0) {
+                for (let i = 0; i < numRows; i++) {
+                    let row = [];
+                    let numCols = parseInt(prompt("Nhập độ dài phần tử mảng con"));
+                    for (let j = 0; j < numCols; j++) {
+                        let element = parseInt(prompt("Nhập phần tử cho mảng con thứ " + (i + 1) + ", vị trí " + j + ":"));
+                        row.push(element);
+                    }
+
+                    arr.push(row);
+                }
+                break;
+            } else {
+                alert("Số hàng phải là số và lớn hơn 0 , Nhập lại");
+            }
+        }
+
+        return arr;
+
+    }
+
+    function checkSNT(number) {
+        if (number < 2) {
+            return false;
+        } else {
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    function showSNT(array) {
+        let arr = [];
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (checkSNT(array[i][j])) {
+                    arr.push(array[i][j]);
+                } else {
+                    array.splice(array[i][j], 1);
+                }
+            }
+        }
+        return arr;
+    }
+
+    function checkCountSNT(array) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            count++;
+        }
+        return count;
+    }
+
+    let valueArray = addValueArray();
+    console.log(valueArray);
+    let showSNTo = showSNT(valueArray);
+    let checkCountSNTo = checkCountSNT(showSNTo);
+    document.write("Số nguyên tố trong mảng là : " + showSNTo + "<br>");
+    document.write("Số lượng số nguyên tố có trong mảng là : " + checkCountSNTo);
+
+</script>
+</body>
+</html>

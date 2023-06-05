@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra các số nguyên âm</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập chuỗi");
+    function checkString(str){
+        let arr = str.split("");
+        let array = [];
+        for (let i = 0; i < str.length; i++) {
+            if (arr[i] === "u" || arr[i] === "e" || arr[i] === "o"|| arr[i] === "a"  || arr[i] === "i"||
+                arr[i] === "U" || arr[i] === "E" || arr[i] === "O"|| arr[i] === "A"  || arr[i] === "I") {
+                array.push(arr[i]);
+            }
+        }
+        document.write("Nguyên âm trong mảng là : " + array);
+    }
+
+    checkString(str);
+</script>
+</body>
+</html>

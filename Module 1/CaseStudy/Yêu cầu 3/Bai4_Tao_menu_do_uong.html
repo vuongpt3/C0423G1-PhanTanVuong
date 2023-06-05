@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo ra menu đồ uống</title>
+</head>
+<body>
+<script>
+    let cafe = 23000;
+    let camVat = 49000;
+    let nuocEpCaRot = 45000;
+    let nuocEpCaChua = 64000;
+    let nuocLoc = 12000;
+    let nuocDua = 24000;
+    let sum = 0;
+    while (true) {
+        let menu = +prompt("Vui lòng chọn đồ uống \n 1 . Cà phê nguyên chất từ Trung Của - Giá : 23000\n 2 . Cam vắt - Giá : 49000\n 3 . Nước ép cà rốt - Giá : 45000\n 4 . Nước ép cà chua - Giá : 64000" +
+            "\n 5 . Nước lọc - Giá : 12000\n 6 . Nước dừa - Giá : 24000\n 7 . Thoát");
+        if (!isNaN(menu) && menu > 0 && menu < 8) {
+            if (menu === 1) {
+                let soLuongCaFe = +prompt("Nhập số lượng Cà phê bạn muốn mua");
+                sum = cafe * soLuongCaFe;
+                alert("Tổng số tiền bạn cần trả khi mua Cà phê , số lượng " + soLuongCaFe + " là : " + sum);
+            } else if (menu === 2) {
+                let soLuongCamVat = +prompt("Nhập số lượng nước Cam Vắt bạn muốn mua");
+                sum = camVat * soLuongCamVat;
+                alert("Tổng số tiền bạn cần trả khi mua Nước cam vắt với số lượng " + soLuongCamVat + " là : " + sum);
+            } else if (menu === 3) {
+                let soLuongCaRot = +prompt("Nhập số lượng nước ép cà rốt bạn muốn mua");
+                sum = nuocEpCaRot * soLuongCaRot;
+                alert("Tổng số tiền bạn cần trả khi mua Cà phê , số lượng " + soLuongCaRot + " là : " + sum);
+            } else if (menu === 4) {
+                let soLuongCaChua = +prompt("Nhập số lượng nước ép cà chua bạn muốn mua");
+                sum = nuocEpCaChua * soLuongCaChua;
+                alert("Tổng số tiền bạn cần trả khi mua Cà phê , số lượng " + soLuongCaChua + " là : " + sum);
+            } else if (menu === 5) {
+                let soLuongNuocLoc = +prompt("Nhập số lượng nước lọc bạn muốn mua");
+                sum = nuocLoc * soLuongNuocLoc;
+                alert("Tổng số tiền bạn cần trả khi mua Cà phê , số lượng " + soLuongNuocLoc + " là : " + sum);
+            } else if (menu === 6) {
+                let soLuongNuocDua = +prompt("Nhập số lượng nước dừa bạn muốn mua");
+                sum = nuocDua * soLuongNuocDua;
+                alert("Tổng số tiền bạn cần trả khi mua Cà phê , số lượng " + soLuongNuocDua + " là : " + sum);
+            } else if (menu === 7) {
+                alert("Chúc quý khách bro hơn");
+                break;
+            }
+        } else {
+            alert("Nhập số sai . Nhập lại");
+        }
+    }
+</script>
+</body>
+</html>

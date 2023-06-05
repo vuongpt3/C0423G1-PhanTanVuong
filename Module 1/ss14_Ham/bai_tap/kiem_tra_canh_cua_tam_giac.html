@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra cạnh của tam giác</title>
+</head>
+<body>
+<script>
+    let x = +prompt("Nhập vào cạnh x");
+    let y = +prompt("Nhập vào cạnh y");
+    let z = +prompt("Nhập vào cạnh z");
+    function checkTriangle(x,y,z){
+        if (x <= 0 || y <= 0 || z <= 0 || x + y <= z || x + z <= y ||y + z <= x){
+            document.write("3 cạnh x ,y ,z không phải là cạnh của tam giác");
+        }
+        if (x * x === y * y + z * z || y * y === x * x + z * z || z * z === y * y + x * x){
+            document.write("3 cạnh x ,y ,z là cạnh của tam giác vuông");
+        }else {
+            document.write("Là 3 cạnh của tam giác");
+        }
+    }
+    checkTriangle(x,y,z);
+</script>
+</body>
+</html>

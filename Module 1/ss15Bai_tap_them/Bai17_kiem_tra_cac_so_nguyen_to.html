@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra tất cả các phần tử trong mảng có phải là số nguyên tố không</title>
+</head>
+<body>
+<script>
+    function checkSNT(number){
+        if (number < 2 ){
+            return false;
+        }else{
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    let array = [];
+    function addArray(array){
+
+        while (true){
+            let  input = +prompt("Nhập độ dài của mảng");
+            if (!isNaN(input) && input > 0){
+                for (let i = 0; i < input; i++) {
+                    array.push(+prompt("Nhập phần tử mảng tại vị trí :" + (i + 1)));
+                }
+                break;
+            }else {
+                alert("Độ dài mảng phải là số và lớn hơn 0, Nhập lại");
+            }
+        }
+        return array;
+    }
+    function showSNT(checkArray){
+        for (let i = 0; i <= checkArray.length; i++) {
+            if (!checkSNT(checkArray[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+    document.write("Mảng vừa nhập là : " + addArray(array) + "<br>");
+    if (showSNT(array)){
+        alert("Oke");
+    }else {
+        alert("No");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố</title>
+</head>
+<body>
+<script>
+    function kiem_tra_snt(number) {
+        if (number < 2) {
+            return false;
+        } else {
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+        function showSNT() {
+            let input = parseInt(prompt("Nhập số để kiểm tra"));
+            while (!kiem_tra_snt(input)) {
+                input = parseInt(prompt(input +" : Không phải số nguyên tố , vui lòng nhập lại"));
+            }
+                alert(input + " : Là số nguyên tố");
+        }
+        showSNT();
+</script>
+</body>
+</html>

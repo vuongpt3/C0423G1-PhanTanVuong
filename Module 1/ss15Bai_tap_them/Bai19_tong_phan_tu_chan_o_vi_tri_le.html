@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị tồng các phần tử chẵn ở vị trí lẻ</title>
+</head>
+<body>
+<script>
+   function checkNumber(){
+       let arr = [];
+       let sum = 0;
+       while (true){
+           let number = +prompt("Nhập độ dài của mảng số");
+           if (!isNaN(number) && number > 0){
+               for (let i = 0; i < number; i++) {
+                   arr.push(+prompt("Nhập phần tử mảng tại vị trí : " + ( i + 1)));
+               }
+               break;
+           }else {
+               alert("Độ dài phải là số và lớn hơn 0 , Nhập lại đê");
+           }
+       }
+       document.write("Phần tử vừa nhập vào là : " + arr + "<br>");
+       for (let i = 0; i < arr.length; i++) {
+           if (arr[i] % 2 === 0 && i % 2 !== 0 ){
+               sum += arr[i];
+           }else {
+               alert("Không có phần tử chẵn nào ở vị trí chia hết cho 3 ");
+               break;
+           }
+       }
+       document.write("Tổng phần tử chẵn ở vị trí lẻ là : " + sum);
+   }
+   checkNumber();
+</script>
+</body>
+</html>

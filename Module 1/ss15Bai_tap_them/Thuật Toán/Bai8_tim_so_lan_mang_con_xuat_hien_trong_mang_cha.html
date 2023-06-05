@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countOccurrences(parent, child) {
+        const parentLength = parent.length;
+        const childLength = child.length;
+        let count = 0;
+
+        for (let i = 0; i <= parentLength - childLength; i++) {
+            let isMatch = true;
+
+            // Kiểm tra từng phần tử trong mảng child
+            for (let j = 0; j < childLength; j++) {
+                if (parent[i + j] !== child[j]) {
+                    isMatch = false;
+                    break;
+                }
+            }
+
+            if (isMatch) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    // Hàm chính
+    function findOccurrences(parent, child) {
+        const parentArray = parent.split(",").map(Number);
+        const childArray = child.split(",").map(Number);
+
+        return countOccurrences(parentArray, childArray);
+    }
+
+    // Test với các ví dụ
+    console.log(findOccurrences("1,4,5,2,1", "1,2,3")); // Output: 0
+    console.log(findOccurrences("1,4,5,2,3", "1,2,3")); // Output: 1
+    console.log(findOccurrences("1,4,5,2,3,2,3,1", "1,2,3")); // Output: 2
+    console.log(findOccurrences("1,4,5,2,3,2,3,8", "1,2,3")); // Output: 1
+    console.log(findOccurrences("1,2,3", "1,1,1")); // Output: 1
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function soTienThuDuoc(prices, budget) {
+        let maxProfit = 0;
+        let maxPrice = prices[prices.length - 1];
+
+        for (let i = prices.length - 2; i >= 0; i--) {
+            if (prices[i] > maxPrice) {
+                maxPrice = prices[i];
+            } else {
+                const profit = maxPrice - prices[i];
+                maxProfit = Math.max(maxProfit, profit);
+            }
+        }
+
+        return Math.min(maxProfit, budget) + budget;
+    }
+
+    let prices = [3, 7];
+    let budget = 4;
+    let result = soTienThuDuoc(prices, budget);
+    console.log(result);
+
+</script>
+</body>
+</html>

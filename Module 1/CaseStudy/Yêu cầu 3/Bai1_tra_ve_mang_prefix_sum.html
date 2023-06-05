@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trả về mảng Prefix sum</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    while (true) {
+        let number = +prompt("Nhập độ dài của mảng");
+        if (!isNaN(number) && number > 0) {
+            for (let i = 0; i < number; i++) {
+                arr.push(+prompt("Nhập phần tử mảng tại vị trí : " + (i + 1)));
+            }
+            break;
+        } else {
+            alert("Độ dài mảng là số và lớn hơn 0 , Nhập lại đê");
+        }
+    }
+    document.write("Mảng vừa nhập là : " + arr + "<br>");
+    arr[0] = arr[0]
+    for (let i = 1; i < arr.length; i++) {
+        arr[i] = arr[i - 1] + arr[i];
+    }
+    document.write("Kết quả là : " + arr);
+</script>
+</body>
+</html>

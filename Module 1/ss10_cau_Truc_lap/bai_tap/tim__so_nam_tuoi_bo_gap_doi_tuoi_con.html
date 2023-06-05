@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số năm bố gấp đôi tuổi con</title>
+</head>
+<body>
+<script>
+  let tuoiCha = +prompt("Nhập số tuổi của cha");
+  let tuoiCon = +prompt("Nhập số tuổi của con");
+  if (tuoiCha - tuoiCon >= 25){
+    for (let i = 0; ; i++) {
+      if ((tuoiCha + i) === ((tuoiCon + i)* 2)){
+        document.write("Cần khoảng " + i + " năm nữa là tuổi cha gấp đôi tuổi con");
+        break;
+      }
+    }
+  }else {
+    document.write("Nhập số tuổi cha lớn hơn con thấp hơn 25 tuổi")
+  }
+</script>
+</body>
+</html>

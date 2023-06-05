@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm các số fiobacy có trong mảng nhập vào</title>
+</head>
+<body>
+<script>
+    function checkInput(){
+        let arr = [];
+        while (true){
+            let number = +prompt("Nhập độ dài mảng nhập vào");
+            if (number > 0 && !isNaN(number)){
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Phần tử mảng tại vị trí : " + ( i + 1)));
+                }
+                break;
+            }else {
+                alert("Độ dài phải là số và lớn hơn 0");
+            }
+        }
+        return arr;
+    }
+
+    function checkNumberMax(maxNumber){
+        let max = maxNumber[0];
+        for (let i = 0; i < maxNumber.length; i++) {
+            if (max < maxNumber[i] || max === maxNumber[i]){
+                max = maxNumber[i]
+            }
+        }
+        return max;
+    }
+    function outputFibonacy(n){
+        let array = [];
+
+        if (n >= 1) {
+            array.push(0);
+        }
+
+        if (n >= 2) {
+            array.push(1);
+        }
+        let nextNumber = array[0] + array[1];
+        for (let i = 2; ; i++) {
+            nextNumber = array[i - 1] + array[i - 2];
+            if (nextNumber > n){
+                break;
+            }
+            array.push(nextNumber);
+        }
+        return array;
+    }
+    function checkTwoArray(array1, array2){
+        let arr = [];
+        for (let i = 0; i < array1.length; i++) {
+            for (let j = 0; j < array2.length; j++) {
+                if (array1[i] === array2[j]){
+                    arr.push(array1[i]);
+                }
+            }
+        }
+        return arr;
+    }
+    let arr = checkInput();
+    document.write("Mảng sau khi thêm phần tử là : " + arr + "<br>");
+    let max = checkNumberMax(arr)
+    document.write("Số lớn nhất trong mảng  : " + max + "<br>");
+    let fibonacy = outputFibonacy(max);
+     document.write("Dãy số Fibonaci nhỏ hơn " + max + " phần tử là : " +  fibonacy + "<br>");
+    let checkArray = checkTwoArray(arr , fibonacy);
+    checkArray.sort(function (a ,b){
+        return a - b;
+    })
+    document.write("Các phần tử là số Fibonacy có trong mảng là : " + checkArray);
+</script>
+</body>
+</html>

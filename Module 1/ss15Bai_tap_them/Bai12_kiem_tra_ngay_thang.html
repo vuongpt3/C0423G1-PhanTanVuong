@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ngày tháng năm</title>
+</head>
+<body>
+<script>
+    let dateString = prompt("Nhập vào ngày tháng năm : Đinh dạng \n DD/MM/YYYY hoặc DD-MM-YYYY");
+
+    function checkDate(dateString) {
+        let input = dateString.substring(0, 2);
+
+        let center = dateString.substring(3, 5);
+        let output = dateString.substring(6, 10);
+
+        let kiTu1 = dateString.substring(2,3);
+        let kiTu2 = dateString.substring(5, 6);
+        if (!isNaN(input) && !isNaN(center) && !isNaN(output) && dateString.length <= 10
+            && (kiTu1 ==="/" || kiTu1==="-") && (kiTu2 === "/" || kiTu2 === "-")
+            && parseInt(input) < 32 && parseInt(input) > 0 && parseInt(center) > 0 && parseInt(center) < 13) {
+                document.write("Đúng rối này");
+        }else {
+            document.write("Sai rồi nha");
+        }
+    }
+    checkDate(dateString);
+</script>
+</body>
+</html>

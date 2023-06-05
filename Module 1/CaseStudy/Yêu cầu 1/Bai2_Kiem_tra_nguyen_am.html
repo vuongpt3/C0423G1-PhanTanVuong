@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra có phải nguyên âm không</title>
+</head>
+<body>
+<script>
+    while (true) {
+        let str = prompt("Nhập vào kiểm tra");
+        if (str.length === 1) {
+            if (str === 'u' || str === 'e' || str === 'o' || str === 'a' || str === 'i' ||
+                str === 'U' || str === 'E' || str === 'O' || str === 'A' || str === 'I') {
+                alert(str + " : là nguyên âm")
+            } else {
+                alert(str + " : không phải là nguyên âm");
+            }
+            break;
+        } else {
+            alert("Vui lòng nhập 1 từ để kiểm tra, không nhập nhiều hơn 1 , Nhập lại")
+        }
+    }
+</script>
+</body>
+</html>

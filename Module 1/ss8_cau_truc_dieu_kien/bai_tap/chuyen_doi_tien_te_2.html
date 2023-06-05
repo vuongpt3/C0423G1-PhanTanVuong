@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chuyển đổi tiền tệ</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+<h1>Chuyển đổi tiền tệ</h1>
+
+<label for="amountInput">Nhập số tiền:</label>
+<input type="number" id="amountInput">
+
+<label for="fromCurrencySelect">Từ đơn vị tiền tệ:</label>
+<select id="fromCurrencySelect">
+  <option value="USD">USD - Đô la Mỹ</option>
+  <option value="JPY">JPY - Yên Nhật</option>
+  <option value="VND">VND - Việt Nam Đồng</option>
+  <option value="RMB">RMB - Nhân dân tệ</option>
+  <option value="GBP">GBP - Bảng Anh</option>
+</select>
+
+<label for="toCurrencySelect">Sang đơn vị tiền tệ:</label>
+<select id="toCurrencySelect">
+  <option value="USD">USD - Đô la Mỹ</option>
+  <option value="JPY">JPY - Yên Nhật</option>
+  <option value="VND">VND - Việt Nam Đồng</option>
+  <option value="RMB">RMB - Nhân dân tệ</option>
+  <option value="GBP">GBP - Bảng Anh</option>
+</select>
+
+<button onclick="convertCurrency()">Chuyển đổi</button>
+
+<h2>Kết quả:</h2>
+<p id="result"></p>
+<script>
+  function convertCurrency() {
+    var amount = parseFloat(document.getElementById("amountInput").value);
+    var fromCurrency = document.getElementById("fromCurrencySelect").value;
+    var toCurrency = document.getElementById("toCurrencySelect").value;
+    var result = document.getElementById("result");
+
+    var exchangeRate = getExchangeRate(fromCurrency, toCurrency);
+    var convertedAmount = amount * exchangeRate;
+
+    result.innerHTML = amount.toFixed(2) + " " + fromCurrency + " = " + convertedAmount.toFixed(2) + " " + toCurrency;
+  }
+
+  function getExchangeRate(fromCurrency, toCurrency) {
+    // Tỷ giá hối đoái giữa các đơn vị tiền tệ
+    // Ví dụ: USD là đơn vị trung gian, tỷ giá hối đoái theo USD
+    let exchangeRates = {
+      USD: {
+        JPY: 110,
+        VND: 23000,
+        RMB: 6.5,
+        GBP: 0.8
+      },
+      JPY: {
+        USD: 0.0091,
+        VND: 209.16,
+        RMB: 0.059,
+        GBP: 0.0071
+      },
+      VND: {
+        USD: 0.000043,
+        JPY: 0.0048,
+        RMB: 0.00027,
+        GBP: 0.000038
+      },
+      RMB: {
+        USD: 0.15,
+        JPY: 16.92,
+        VND: 3722.31,
+        GBP: 0.12
+      },
+      GBP: {
+        USD: 1.25,
+        JPY: 141.07,
+        VND: 26131.57,
+        RMB: 8.15
+      }
+    };
+
+    return exchangeRates[fromCurrency][toCurrency];
+  }
+
+</script>
+</body>
+</html>

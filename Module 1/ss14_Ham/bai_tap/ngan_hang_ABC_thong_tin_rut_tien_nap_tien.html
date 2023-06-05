@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ngân hàng ABC - Trang chủ</title>
+    <link rel="icon" type="image/png" href="https://inhoangha.com/ckfinder/userfiles/images/logo-acb.png">;
+    <style>
+        :root{
+            margin: 0;
+            padding: 0;
+        }
+        .background img{
+            height: 250px;
+            width: 500px;
+            margin-left: 500px;
+            margin-top: -50px;
+        }
+        .background h2{
+            text-align: center;
+            margin-top: -20px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+<div class="background">
+    <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/11/logo-acb-inkythuatso-10-10-28-43.jpg"><span><img src="https://media.tenor.com/5efd1qKC0fkAAAAC/vietnamese-vi%E1%BB%87t-nam.gif" style="height: 30px;width: 60px;position: absolute;margin-left: -45px;margin-top: 185px"></span>
+    <h2>Ngân hàng ACB hàng đầu Việt Nam</h2>
+    <p id="result"></p>
+</div>
+<script>
+      let web = confirm("Trước tiên vào, bạn nên đăng nhập trước : Oke không bro?");
+      if (web){
+          let login = prompt("Nhập tài khoản : PTV");
+          let password = prompt("Nhập mật khẩu : 123");
+          if (login === "PTV" && password === "123"){
+              alert("Ngân hàng ACB kính chào quý khách");
+              let result = document.getElementById("result");
+              class informationPeople{
+                  constructor(idAccount , nameAccount, moneyAccount) {
+                      this.idAccount = idAccount;
+                      this.nameAccount = nameAccount;
+                      this.moneyAccount = moneyAccount;
+                  }
+                  setIdAccount(idAccount){
+                      this.idAccount = idAccount;
+                  }
+                  setNameAccount(nameAccount){
+                      this.nameAccount = nameAccount;
+                  }
+                  setMoneyAccount(moneyAccount){
+                      this.moneyAccount = moneyAccount;
+                  }
+                  getIdAccount(){
+                      return this.idAccount;
+                  }
+                  getNameAccount(){
+                      return this.nameAccount;
+                  }
+                  getMoneyAccount(){
+                      return this.moneyAccount;
+                  }
+              }
+              function addMoney(indexAccount){
+                  let napTien = confirm("Bạn muốn nạp tiền phải không");
+                  if (napTien){
+                      let number = +prompt("Nhập số tiền muốn nạp" );
+                      if (number > 0 || number < 99999999){
+                          moneyAccount[indexAccount].moneyAccount += number;
+                          alert("Số tiền của bạn sau khi nộp là : " +"[ "+ moneyAccount[indexAccount].moneyAccount + " ]");
+                      }else {
+                          alert("Giới hạn tiền mỗi lần nạp vào là dưới 1 trăm triệu");
+                      }
+                      display(moneyAccount);
+                  }else {
+                      alert("Oke bro");
+                  }
+              }
+
+              function exportMoney(index){
+                  let number = +prompt("Nhập số tiền muốn rút");
+                  if (moneyAccount[index].moneyAccount > 0 || moneyAccount[index].moneyAccount >= number){
+                      moneyAccount[index].moneyAccount -= number;
+                      alert("Tài khoản của bạn còn : " + moneyAccount[index].moneyAccount);
+                  }else {
+                      alert("Số tiền trong tài khoản của bạn không đủ");
+                  }
+                  display(moneyAccount);
+              }
+              let moneyAccount = [];
+              let account1 = new informationPeople("8498988422304", "Hoàng Anh Minh",9999999 );
+              let account2 = new informationPeople("8509204832421", "Nguyễn Thị Mỹ Anh",7434363 );
+              let account3 = new informationPeople("5073540148450", "Phạm Nguyễn Trung Hà",4574534 );
+              let account4 = new informationPeople("2408636548201", "Phan Tấn Trung",7644653 );
+              moneyAccount.push(account1,account2,account3,account4);
+              display(moneyAccount);
+              function display(List){
+                  let tableString = '<table border="1" style="height: 350px;width: 80%;margin: 0 auto;text-align: center;font-size: 23px;margin-top: 30px;border-radius: 30px;border: 4px solid black">\n' +
+                      '    <tr style="background-color: black;color: white;border-radius: 5px">\n' +
+                      '        <th style="width: 250px; border-radius: 11px;border: 3px solid red">Số tài khoản</th>\n' +
+                      '        <th style="width: 350px; border-radius: 11px;border: 3px solid red">Tên tài khoản</th>\n' +
+                      '        <th style="width: 300px; border-radius: 11px;border: 3px solid red">Số tiền trong tài khoản</th>\n' +
+                      '        <th style="width: 300px; border-radius: 11px;border: 3px solid red">Nạp tiền vào tài khoản</th>\n' +
+                      '        <th style="width: 300px; border-radius: 11px;border: 3px solid red">Rút tiền trong tài khoản</th>\n' +
+                      '    </tr>\n'
+                  for(let i = 0; i < List.length ; i++){
+                      tableString += '<tr>\n' +
+                          '        <td style="border: 3px solid darkblue; border-radius: 11px">' + List[i].getIdAccount() +'</td>\n' +
+                          '        <td style="border: 3px solid darkblue; border-radius: 11px">'+ List[i].getNameAccount()+'</td>\n' +
+                          '        <td style="border: 3px solid darkblue; border-radius: 11px">'+ List[i].getMoneyAccount()+ "<b>"+ " $" +"</b>" + '</td>\n' +
+                          '        <td style="border: 3px solid darkblue; border-radius: 11px"><button onclick="addMoney('+ i +')" style="height: 40px;width: 150px;font-size: 20px;border-radius: 20px;border: 5px solid rgb(150,250,331);border-image-slice: 1;\n' +
+                          '  border-image-source: linear-gradient(to right bottom, #6a5af9, #f62682);box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">👉 NẠP TIỀN</button></td>\n' +
+                          '        <td style="border: 3px solid darkblue; border-radius: 11px"><button onclick="exportMoney('+i+')" style="height: 40px;width: 150px;font-size: 20px;border-radius: 10px;border: 5px solid rgb(150,250,331); background: linear-gradient(to right, #f12711, #f5af19);box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">👉 RÚT TIỀN</button></td>\n' +
+                          '    </tr>'
+                  }
+                  tableString += "</table>"
+                  result.innerHTML = tableString;
+              }
+          }
+      }else {
+          alert("Chào tạm biệt");
+      }
+</script>
+</body>
+</html>

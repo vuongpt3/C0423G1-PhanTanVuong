@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flappy Bird</title>
+  <style>
+    #game-container {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      border: 1px solid black;
+      overflow: hidden;
+    }
+
+    #bird {
+      position: absolute;
+      top: 50%;
+      left: 50px;
+      width: 50px;
+      height: 50px;
+      background-color: yellow;
+    }
+
+    .pipe {
+      position: absolute;
+      width: 80px;
+      height: 300px;
+      background-color: green;
+    }
+
+    #pipe-top {
+      top: -300px;
+    }
+
+    #pipe-bottom {
+      bottom: -300px;
+    }
+  </style>
+</head>
+<body>
+<div id="game-container">
+  <div id="bird"></div>
+  <div class="pipe" id="pipe-top"></div>
+  <div class="pipe" id="pipe-bottom"></div>
+</div>
+
+<script>
+  var bird = document.getElementById("bird");
+  var pipeTop = document.getElementById("pipe-top");
+  var pipeBottom = document.getElementById("pipe-bottom");
+  var gameContainer = document.getElementById("game-container");
+
+  var birdY = 200;
+  var gravity = 2;
+  var jumpHeight = 50;
+  var pipeX = 400;
+  var pipeSpeed = 5;
+
+  function gameLoop() {
+    // Move the bird
+    birdY += gravity;
+    bird.style.top = birdY + "px";
+
+    // Move the pipes
+    pipeX -= pipeSpeed;
+    pipeTop.style.left = pipeX + "px";
+    pipeBottom.style.left = pipeX + "px";
+
+    // Check for collision
+    if (
+            birdY < 0 ||
+            birdY + bird.offsetHeight > gameContainer.offsetHeight ||
+            (bird.offsetLeft + bird.offsetWidth > pipeX &&
+                    bird.offsetLeft < pipeX + pipeTop.offsetWidth &&
+                    (birdY < pipeTop.offsetHeight ||
+                            birdY + bird.offsetHeight > pipeTop.offsetHeight + jumpHeight))
+    ) {
+      gameOver();
+    } else if (pipeX + pipeTop.offsetWidth < 0) {
+      // Reset the pipes
+      pipeX = 400;
+      pipeTop.style.left = pipeX + "px";
+      pipeBottom.style.left = pipeX + "px";
+    }
+
+    requestAnimationFrame(gameLoop);
+  }
+
+  function jump() {
+    birdY -= jumpHeight;
+  }
+
+  function gameOver() {
+    alert("Game Over!");
+    location.reload(); // Reload the page to restart the game
+  }
+
+  // Listen for space key press to make the bird jump
+  document.addEventListener("keydown", function (event) {
+    if (event.keyCode === 32) {
+      jump();
+    }
+  });
+
+  // Start the game
+  gameLoop();
+</script>
+</body>
+</html>

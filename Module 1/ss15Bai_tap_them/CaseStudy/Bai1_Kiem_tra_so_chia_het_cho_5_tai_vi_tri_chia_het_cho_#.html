@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm tổng các phần tử chia hết cho 5 tại vị trí chi hết cho 3</title>
+</head>
+<body>
+<script>
+    function checkValue(){
+        let medium;
+        let sum = 0;
+        let arr = [];
+        while (true){
+            let number = +prompt("Nhập độ dài phần tử");
+            if (number <= 50 && number > 0){
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử tại vị trí : " + (i + 1)));
+                }
+                break;
+            }else {
+                alert("Độ dài mảng là số lớn hơn 0 và nhỏ hơn hoặc bằng 50");
+            }
+        }
+        alert(arr);
+        let array = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 5 === 0 && i % 3 ===0){
+                array.push(arr[i]);
+            }
+        }
+        alert(array);
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        alert(sum);
+        medium = sum / array.length
+        document.write("Mảng sau khi nhập : " + arr + "<br>");
+        document.write("Phần tử chia hết cho 5 ở vị trí chia hết cho 3 là : " + array + "<br>");
+        document.write("Kết quả trung bình của mảng là : " + medium);
+    }
+    checkValue();
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất và nhỏ nhất trong mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    function addValueArray() {
+        let arr = [];
+        while (true) {
+            let numRow = +prompt("Nhập độ dài của mảng cha");
+            if (!isNaN(numRow) && numRow > 0) {
+                for (let i = 0; i < numRow; i++) {
+                    let row = [];
+                    let numRow = +prompt("Nhập độ dài phần tử mảng con thứ " + (i + 1));
+                    for (let j = 0; j < numRow; j++) {
+                        let element = +prompt("Nhập phần của mảng con thứ " + (i + 1) + " tại vị trí thứ " + (j + 1));
+                        row.push(element)
+                    }
+                    arr.push(row);
+                }
+                break;
+            } else {
+                alert("Độ dài mảng cha là số và lớn hơn 0 , Nhập lại đê");
+            }
+        }
+        return arr;
+    }
+
+    function newArray(array) {
+        let arr = [];
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                arr.push(array[i][j]);
+            }
+        }
+        return arr;
+    }
+
+    function checkMax(array) {
+        let max = array[0];
+        for (let i = 1; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+    function checkMin(array) {
+        let min = array[0];
+        for (let i = 1; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    let newValueArray = addValueArray();
+    let newArray1 = newArray(newValueArray)
+    console.log(newArray1);
+    let numMax = checkMax(newArray1);
+    let numMin = checkMin(newArray1);
+    document.write("Số lớn nhất trong mảng 2 chiều là : " + numMax + "<br>");
+    document.write("Số lớn nhỏ trong mảng 2 chiều là : " + numMin);
+</script>
+</body>
+</html>

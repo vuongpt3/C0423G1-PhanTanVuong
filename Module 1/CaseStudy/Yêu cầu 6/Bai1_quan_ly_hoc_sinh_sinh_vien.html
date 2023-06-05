@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý học sinh , sinh viên</title>
+    <link rel="icon" type="image/png"
+          href="https://cdn.haitrieu.com/wp-content/uploads/2021/10/Logo-DH-Cong-Doan-TUU.png">
+    <style>
+        .addStudent {
+            margin-left: 50%;
+            height: 40px;
+            width: 250px;
+            border-radius: 10px;
+            border: none;
+            font-size: 20px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-image: linear-gradient(to bottom right, #0100EC, #FB36F4);
+            color: white;
+            box-shadow: 2px 2px 4px deepskyblue;
+        }
+
+        .information {
+            margin-left: 10%;
+            margin-top: 30px;
+        }
+
+        .information input {
+            width: 180px;
+            margin-left: 20px;
+            height: 25px;
+            border-radius: 5px;
+            border: none;
+            border-bottom: 2px solid darkred;
+            color: #23A6D5;
+        }
+
+        .search .prefix {
+            position: relative;
+            right: -110px;
+            color: grey;
+        }
+
+        .search input .has-prefix {
+            padding-left: 50px;
+            margin-left: -50px
+        }
+
+        .search {
+            margin-left: 35%;
+        }
+
+        .search label {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .search input {
+            margin-left: 70px;
+            margin-top: 20px;
+            height: 40px;
+            width: 300px;
+            border: none;
+            border-bottom: 3px solid deepskyblue;
+            text-indent: 40px;
+        }
+
+        .search button {
+            margin-left: 20px;
+            height: 40px;
+            width: 100px;
+            border: none;
+            border-radius: 20px;
+            font-size: 20px;
+            box-shadow: 2px 2px 4px blue;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+
+        .search button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .search button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .search button:hover span {
+            padding-right: 25px;
+        }
+
+        .search button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .search button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .search p {
+            font-size: 20px;
+            margin-left: -5in;
+        }
+
+        .textMarquee {
+            display: flex;
+        }
+
+        .textMarquee h1 {
+            text-transform: uppercase;
+            background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .textMarquee .imgMarquee {
+            position: absolute;
+            height: 70px;
+            width: 150px;
+        }
+        .mxh {
+            display: flex;
+            margin-left: 40%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="textMarquee">
+    <marquee behavior="alternate" style="font-size: 30px"><h1>TRANG WEB QUẢN LÝ HỌC VIÊN </h1>
+        <img class="imgMarquee" src="https://cdn.pixabay.com/animation/2022/09/18/18/39/18-39-26-615_512.gif"></marquee>
+    </br>
+</div>
+<div class="search">
+    <span class="prefix">HV - </span>
+    <input class="has-prefix " id="searchStudent" type="text" placeholder="Nhập id học viên bạn muốn tìm">
+    <button onclick="searchStudent()"><span>Tìm</span></button>
+    <p id="resultStudent"></p>
+</div>
+<p id="result"></p>
+<button onclick="addStudent()" class="addStudent">🤜Thêm mới học viên🤛</button>
+<!--<div class="information">-->
+<!--&lt;!&ndash;    <input type="text" placeholder="Nhập ID học viên" id="idStudent"  p="HV-">&ndash;&gt;-->
+<!--    <span class="prefix">HV-</span>-->
+<!--    <input class="has-prefix" type="text" placeholder=" Nhập mã học viên" id="idStudent">-->
+
+<!--    <input type="text" placeholder="Nhập tên học viên" id="nameStudent">-->
+<!--    <input type="text" placeholder="Nhập lớn học viên" id="gradeStudent">-->
+<!--    <input type="text" placeholder="Nhập Email học viên" id="emailStudent">-->
+<!--    <input type="text" placeholder="Nhập ngày sinh học viên" id="dateStudent">-->
+<!--    <input type="number" placeholder="Nhập Module học viên" id="moduleStudent" max="6" min="1">-->
+<!--</div>-->
+<script>
+    let conf = confirm("Trước khi vào cần đăng nhập trước");
+    if (conf) {
+        let loginAccount = prompt("Nhập tài khoản : PTV");
+        let loginPassword = prompt("Nhập mật khẩu : 123");
+        if (loginAccount === "PTV" && loginPassword === "123") {
+            alert("Đăng nhập thành công");
+
+            class CheckInformationStudent {
+                constructor(idStudent, nameStudent, grade, email, date, module) {
+                    this.idStudent = idStudent;
+                    this.nameStudent = nameStudent;
+                    this.grade = grade;
+                    this.email = email;
+                    this.date = date;
+                    this.module = module;
+                }
+
+                setID(idStudent) {
+                    this.idStudent = idStudent;
+                }
+
+                setName(nameStudent) {
+                    this.nameStudent = nameStudent;
+                }
+
+                setGrade(grade) {
+                    this.grade = grade;
+                }
+
+                setEmail(email) {
+                    this.email = email;
+                }
+
+                setDate(date) {
+                    this.date = date;
+                }
+
+                setModule(module) {
+                    this.module = module;
+                }
+
+                getID() {
+                    return this.idStudent;
+                }
+
+                getName() {
+                    return this.nameStudent;
+                }
+
+                getgrade() {
+                    return this.grade;
+                }
+
+                getEmail() {
+                    return this.email;
+                }
+
+                getDate() {
+                    return this.date;
+                }
+
+                getModule() {
+                    return this.module;
+                }
+            }
+
+            let newStudent = [];
+            let countID = 0;
+            // alert ((countID+"").length === 1 ? "000" + ++countID : 9);
+            let newStudent1 = new CheckInformationStudent(initAutoIncrementID(++countID), "Nguyễn Ánh", "C0222G1", "nguyenanh@gmail.com", "02/05/2001", 4);
+            let newStudent2 = new CheckInformationStudent(initAutoIncrementID(++countID), "Phan Tấn Vương", "C0222G1", "phantanvuong001@gmail.com", "02/05/2001", 2);
+            let newStudent3 = new CheckInformationStudent(initAutoIncrementID(++countID), "Lê Văn Long", "C0222G1", "longle1999@gmail.com", "02/05/2001", 3);
+            let newStudent4 = new CheckInformationStudent(initAutoIncrementID(++countID), "Nguyễn Minh Quang", "C0222G1", "quangnguyen007@gmail.com", "02/05/2001", 1);
+            newStudent.push(newStudent1, newStudent2, newStudent3, newStudent4);
+            display(newStudent);
+            let arr = [];
+
+            function initAutoIncrementID(currentId) {
+                let preId = "";
+                for (let i = 4; i > (currentId + "").length; i--) {
+                    preId += "0";
+                }
+                return preId + currentId;
+            }
+
+            function addStudent() {
+                let name = prompt("Nhập tên của học viên", "Nhập tên của Bro vào đây");
+                let arrName = name.split("");
+                for (let i = 0; i < arrName.length; i++) {
+                    if (arrName[i] === arrName[0]) {
+                        arrName[i] = arrName[i].toUpperCase();
+                    } else if (arrName[i] === " ") {
+                        arrName[i + 1] = arrName[i + 1].toUpperCase();
+                        i++;
+                    } else {
+                        arrName[i] = arrName[i].toLowerCase();
+                    }
+                }
+                let grade = prompt("Nhập lớp của học viên");
+                let arrGrade = grade.split("");
+                for (let i = 0; i < arrGrade.length; i++) {
+                  arrGrade[i] = arrGrade[i].toUpperCase();
+                }
+                let email = prompt("Nhập Email của học viên");
+
+                let arrDate = "";
+               while (true){
+                   let date = prompt("Nhập ngày tháng sinh của học viên");
+                   arrDate = date.toString("");
+                   let day = arrDate.substring(0, 2);
+
+                   let month = arrDate.substring(3, 5);
+                   let year = arrDate.substring(6, 10);
+
+                   let kiTu1 = arrDate.substring(2, 3);
+                   let kiTu2 = arrDate.substring(5, 6);
+                   if (day > 0 && day < 32 && !isNaN(day) && month < 13 && month > 0 && !isNaN(month) && year > 0 && !isNaN(year) && year.length === 4
+                       && (kiTu1 === "/" || kiTu1 === "-") && (kiTu2 === "/" || kiTu2 === "-")&& arrDate.length === 10) {
+                       break;
+                   }else {
+                       alert("Lỗi định dạng hoặc sai ngày tháng , Nhập lại")
+                   }
+               }
+                let module = prompt("Nhập module cua học viên");
+                let addnewStudent = new CheckInformationStudent(initAutoIncrementID(++countID), arrName.join(""), arrGrade.join(""), email, arrDate, module);
+                newStudent.push(addnewStudent)
+                display(newStudent);
+            }
+
+
+            function editStudent(index) {
+                let edit = +prompt("Bạn muốn sửa gì \n 1 . Tên học viên\n 2 . Lớp\n 3 . Email\n 4 . Ngày sinh\n 5 . Module");
+                if (edit === 1) {
+                    let editName = prompt("Chỉnh tên học viên " + newStudent[index].nameStudent + " thành :")
+                    let arr = editName.split("");
+                    for (let i = 0; i < arr.length; i++) {
+                        if (arr[i] === arr[0]) {
+                            arr[i] = arr[i].toUpperCase();
+                        } else if (arr[i] === " ") {
+                            arr[i + 1] = arr[i + 1].toUpperCase();
+                            i++;
+                        } else {
+                            arr[i] = arr[i].toLowerCase();
+                        }
+                    }
+                    newStudent[index].nameStudent = arr.join("");
+                }
+                if (edit === 2) {
+                    let editgrade = prompt("Chỉnh lớp học viên " + newStudent[index].nameStudent + " đang học lớp " + newStudent[index].grade +" thành :");
+                    let arr = editgrade.split("");
+                    for (let i = 0; i < arr.length; i++) {
+                        if (arr.length === 7) {
+                            arr[i] = arr[i].toUpperCase();
+                        } else {
+                            alert("Độ dài của lớp là 7 chữ + số , Nhập lại")
+                        }
+                    }
+                    newStudent[index].grade = arr.join("");
+                    alert("Chuyển lớp thành công , Hãy đánh giá cho chúng tôi 5⭐⭐⭐⭐⭐");
+                }
+                if (edit === 3) {
+                    let editEmail = prompt("Chỉnh Email học viên " + newStudent[index].nameStudent + " thành :");
+                    newStudent[index].email = editEmail;
+                }
+                if (edit === 4) {
+                    while (true) {
+                        let editDate = prompt("Chỉnh ngày sinh học viên " + newStudent[index].nameStudent + " thành :\n Định dạng dd/mm/yyyy");
+                        let day = editDate.substring(0, 2);
+
+                        let month = editDate.substring(3, 5);
+                        let year = editDate.substring(6, 10);
+
+                        let kiTu1 = editDate.substring(2, 3);
+                        let kiTu2 = editDate.substring(5, 6);
+                        if (day > 0 && day < 32 && !isNaN(day) && month < 13 && month > 0 && !isNaN(month) && year > 0 && !isNaN(year) && year.length === 4
+                            && (kiTu1 === "/" || kiTu1 === "-") && (kiTu2) === "/" || kiTu2 === "-") {
+                            newStudent[index].date = editDate;
+                            break;
+                        } else {
+                            alert("Lỗi nhập , Nhập lại");
+                        }
+                    }
+
+                }
+                if (edit === 5) {
+                    while (true) {
+                        let editModule = +prompt("Chỉnh Module học viên " + newStudent[index].nameStudent + " thành :")
+                        if (editModule < 6 && editModule > 0) {
+                            newStudent[index].module = editModule;
+                            break;
+                        } else {
+                            alert("Module nhỏ hơn 6 và lớn hơn 0 , Nhập lại");
+                        }
+                    }
+                }
+                display(newStudent);
+            }
+
+            function deleteStudent(index) {
+                let conf = confirm("Bạn có chắc chắn muốn xóa thông tin của học viên " + newStudent[index].nameStudent + " không?")
+                if (conf) {
+                    let conf = confirm("Bạn chắc chắn muốn xóa học viên " + newStudent[index].nameStudent + " chứ");
+                    if (conf) {
+                        let conf = confirm("Chắc chắn chưa??");
+                        if (conf) {
+                            newStudent.splice(index, 1);
+                            alert("Xóa thành công");
+                        }
+                    }
+                }
+                display(newStudent);
+            }
+
+            function searchStudent() {
+                let id = document.getElementById("searchStudent").value;
+                let flag = false;
+                let result = document.getElementById("resultStudent");
+                for (let i = 0; i < newStudent.length; i++) {
+                    if (id === newStudent[i].idStudent) {
+                        result.innerText = "Tên học viên : " + newStudent[i].nameStudent + "  . " +
+                            "Lớp học viên : " + newStudent[i].grade + "  . " +
+                            "Email của học viên : " + newStudent[i].email + "  . " +
+                            "Ngày sinh của học viên : " + newStudent[i].date + "  . " +
+                            "Module học viên đang học : " + newStudent[i].module + "  . ";
+                        flag = true;
+                        break;
+                    }
+                }
+                if (flag === false) {
+                    alert("Không có học viên có ID này , Chúc Bro may mắn lần sau");
+                }
+                if (id === ""){
+                    result.innerHTML = "";
+                }
+
+            }
+
+            function display(list) {
+                let tableString = '<table style="text-align: center ; height: 350px;width: 90%;margin: 0 auto;border-color: red">\n' +
+                    '    <tr style="height: 50px">\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Mã học viên</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Tên học viên</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Học lớp</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Email</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Ngày sinh</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Module</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Chỉnh sửa học viên</th>\n' +
+                    '        <th style="border-radius: 20px;background-image: linear-gradient(to bottom right, #FF3E9D, #0E1F40);color: white">Xóa học viên</th>\n' +
+                    '    </tr>'
+                for (let i = 0; i < list.length; i++) {
+                    tableString += ' <tr style="height: 60px">\n' +
+                        '        <td style="border-radius: 15px;background-image: linear-gradient(to right bottom, #6a5af9, #f62682);color: white">' + "HV - " + list[i].getID() + '</td>\n' +
+                        '        <td style="border-radius: 15px;background-image: linear-gradient(to right bottom, #6a5af9, #f62682);color: white">' + list[i].getName() + '</td>\n' +
+                        '        <td style="border-radius: 15px;background-image: linear-gradient(to right bottom, #6a5af9, #f62682);color: white">' + list[i].getgrade() + '</td>\n' +
+                        '        <td style="border-radius: 15px;background-image: linear-gradient(to right bottom, #6a5af9, #f62682);color: white">' + list[i].getEmail() + '</td>\n' +
+                        '        <td style="border-radius: 15px;background-image: linear-gradient(to right bottom, #6a5af9, #f62682);color: white">' + list[i].getDate() + '</td>\n' +
+                        '        <td style="border-radius: 15px;background-image: linear-gradient(to right bottom, #6a5af9, #f62682);color: white">' + list[i].getModule() + '</td>\n' +
+                        '        <td><button onclick="editStudent(' + i + ')" style="height: 40px; width: 150px;border-radius: 15px;border: none;background-image: linear-gradient(to bottom right, #FF512F, #DD2476);font-size: 16px;box-shadow: 3px 3px 6px black">👉 Chỉnh sửa</button></td>\n' +
+                        '        <td><button onclick="deleteStudent(' + i + ')" style="height: 40px; width: 150px;border-radius: 15px;border: none;background-image: linear-gradient(to bottom right, #FF61D2, #FE9090);font-size: 16px;box-shadow: 3px 3px 6px black">👉 Xóa</button></td>\n' +
+                        '    </tr>'
+                }
+                tableString += '</table>'
+                document.getElementById("result").innerHTML = tableString;
+            }
+        } else {
+            alert("Sai tài khoản hoăc mật khẩu")
+        }
+    }
+</script>
+</body>
+</html>

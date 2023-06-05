@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm chỉ số của phân số lớn nhất</title>
+</head>
+<body>
+<script>
+    let numerator = [5, 2, 5];
+    let denominator = [6, 3, 4];
+    let array = [];
+    for (let i = 0; i < numerator.length; i++) {
+        for (let j = 0; j < denominator.length; j++) {
+            array.push(Math.round(numerator[i] / denominator[j]));
+        }
+    }
+    let max = array[0];
+    for (let i = 0; i < array.length; i++) {
+        if (max < array[i] || max === array[i]) {
+            max = array[i];
+        }
+    }
+    document.write("Chỉ số lớn nhất là : " + max);
+</script>
+</body>
+</html>

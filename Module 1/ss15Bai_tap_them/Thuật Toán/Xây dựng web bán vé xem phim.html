@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website xem phim hàng đầu Việt Nam</title>
+    <link rel="stylesheet" href="rapphim.css">
+    <link rel="icon" type="image/png" href="https://seeklogo.com/images/M/movie-time-cinema-logo-8B5BE91828-seeklogo.com.png">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div id="baoquanh">
+    <div class="header">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8e123eed-7564-4950-a68c-b4e748016358/dcgftcl-8c2f188b-f981-4cf8-907a-da3ae34ecef9.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhlMTIzZWVkLTc1NjQtNDk1MC1hNjhjLWI0ZTc0ODAxNjM1OFwvZGNnZnRjbC04YzJmMTg4Yi1mOTgxLTRjZjgtOTA3YS1kYTNhZTM0ZWNlZjkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.o1KF6QdtcAhHANklCbwNu5Kd-vtQq7Tqbhav-Ji_JZE">
+        <ul>
+            <li><a href="#" target="_blank">Trang chủ</a></li>
+            <li><a href="#" target="_blank">Đặt chỗ</a></li>
+            <li><a href="#" target="_blank">Mua vé</a></li>
+            <li><a href="#" target="_blank">Tổng hợp các phim hôm nay</a></li>
+        </ul>
+        <input type="text" placeholder="Nhập phim bạn muốn tìm">
+    </div>
+</div>
+<div class="table">
+    <p id="result"></p>
+    <p id="money" style="text-align: center;margin-top: 20px;font-size: 25px"></p>
+</div>
+<script>
+    class MovieProduct {
+        constructor(id , name ,time,sticket, money) {
+            this.id = id;
+            this.name= name;
+            this.sticketQuality = sticket;
+            this.money = money;
+            this.time = time;
+        }
+        setID(id){
+            this.id = id;
+        }
+        setName(name){
+            this.name = name;
+        }
+        setSticket(sticket){
+            this.sticketQuality = sticket;
+        }
+        setMoney(money){
+            this.money = money;
+        }
+        setTime(time){
+            this.time = time;
+        }
+        getId(){
+            return this.id;
+        }
+        getName(){
+            return this.name;
+        }
+        getSticket(){
+            return this.sticketQuality;
+        }
+        getMoney(){
+            return this.money;
+        }
+
+        getTime(){
+            return this.time;
+        }
+    }
+    class yourMoney {
+        constructor(yourMoney) {
+            this.yourMoney = yourMoney;
+        }
+        setYourMoney(youMoney){
+            this.yourMoney = youMoney;
+        }
+        getYourmoney(){
+            return this.yourMoney;
+        }
+    }
+    let sticketMovie = [];
+    let sticket1 = new MovieProduct(1 , "Fast & Furious 10", "14/06/2023" ,999 , 4999888);
+    let sticket2 = new MovieProduct(2 , "Lật Mặt 6: Tấm Vé Định Mệnh",  "16/06/2023" , 999 , 4999888);
+    let sticket3 = new MovieProduct(3 , "Con Nhót Mót Chồng",  "18/06/2023" , 999 , 4999888);
+    let sticket4 = new MovieProduct(4 , "Cô Bé Cứu Hỏa",  "20/06/2023" ,999 , 4999888);
+    let sticket5 = new MovieProduct(5 , "Mèo Siêu Quậy Ở Viện Bảo Tàng",  "25/06/2023" ,999 , 4999888);
+    sticketMovie.push(sticket1,sticket2,sticket3,sticket4,sticket5);
+    display(sticketMovie);
+    function buySticket(index){
+           let conf = confirm("Bro có phải muốn mua vé phim : " + sticketMovie[index].name + " phải không?")
+               if (conf){
+                   let sticket = +prompt("Nhập số vé bạn muốn mua");
+                   if (sticketMovie[index].sticketQuality > sticket){
+                       if (sticket > 10){
+                           alert("Đông dữ");
+                       }
+                       sticketMovie[index].sticketQuality -= sticket;
+                       alert("Số vé còn lại : " + sticketMovie[index].sticketQuality + " vé.");
+                       alert("Phim sẽ chiếu lúc 9h30 ngày " + sticketMovie[index].time + " , Chúc bro xem phim vui vẻ");
+                       let bill = sticket * sticketMovie[index].money;
+                       document.getElementById("money").innerHTML = "Số tiền phải trả khi mua vé là là : " + bill + " $";
+                   }else {
+                       alert("Số vé còn lại không đủ");
+                   }
+                   display(sticketMovie);
+               }else {
+                   alert("Bro click mua nhầm vé phim khác cơ à , Mua lại đi");
+               }
+    }
+ function display(list){
+     let tableString = '<table border="3" style="border-collapse: collapse;height: 300px;width: 60%;text-align: center;margin: 0 auto;margin-top: 100px">\n' +
+         '    <tr style="height: 50px; width: 100px; background-color: black;color: white">\n' +
+         '        <th>STT</th>\n' +
+         '        <th>Tên phim</th>\n' +
+         '        <th>Số vé còn lại</th>\n' +
+         '        <th>Thời gian chiếu</th>\n' +
+         '        <th>Số tiền</th>\n' +
+         '        <th>Mua vé</th>\n' +
+         '    </tr>\n'
+     for (let i = 0; i < list.length; i++) {
+         tableString += '  <tr>\n' +
+             '        <td>'+ list[i].getId() +'</td>\n' +
+             '        <td>'+ list[i].getName() +'</td>\n' +
+             '        <td>'+ list[i].getSticket() + " : vé" + '</td>\n' +
+             '        <td>'+ list[i].getTime() + '</td>\n' +
+             '        <td>'+ list[i].getMoney() + " $" +'</td>\n' +
+             '        <td><button onclick="buySticket('+ i +')"  style="height: 40px;width: 120px;font-size: 20px;border: 5px solid rgb(150,250,331);border-image-slice: 1;\n' +
+             '  border-image-source: linear-gradient(to right bottom, #6a5af9, #f62682);box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">👉 Mua vé</button></td>\n' +
+             '    </tr>'
+     }
+     tableString += '</table>';
+     document.getElementById("result").innerHTML = tableString;
+ }
+ display();
+</script>
+</body>
+</html>

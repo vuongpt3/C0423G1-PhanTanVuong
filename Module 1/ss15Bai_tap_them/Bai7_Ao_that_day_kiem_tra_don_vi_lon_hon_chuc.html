@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra hàng đơn vị lớn hơn hàng chục</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài của dãy số");
+   function checkNumber(number){
+       let arr = [];
+       let array = [];
+          for (let i = 0; i < number; i++) {
+              let input = prompt("Nhập phần tử mảng tại vị trí : " + (i + 1));
+              // ktra
+              if (input > 10 && input < 100){
+                  arr.push(input);
+              }
+          }
+       document.write("Mảng sau khi thêm phần tử : " + arr + "<br>");
+       for (let i = 0; i < arr.length; i++) {
+               if (arr[i] % 10 > Math.floor(arr[i] /10)){
+               array.push(arr[i]);
+           }
+       }
+       document.write("Kết quả hiển thị => " + array);
+   }
+
+   checkNumber(number);
+</script>
+</body>
+</html>

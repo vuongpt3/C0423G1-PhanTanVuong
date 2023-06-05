@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra trong 1 mảng</title>
+</head>
+<body>
+<script>
+    function addValue(array) {
+        array = [];
+        while (true) {
+            let number = +prompt("Nhập vào độ dài của mảng");
+            if (!isNaN(number) && number > 0) {
+                for (let i = 0; i < number; i++) {
+                    array.push(+prompt("Nhập phần tử mảng tại vị trí : " + (i + 1)));
+                }
+                break;
+            } else {
+                alert("Độ dài phải là số và lớn hơn 0 , Nhập lại đê")
+            }
+        }
+        return array;
+    }
+
+    function checkChanLe(chanLe) {
+        let flagChan = false;
+        let flagLe = false;
+        for (let i = 0; i < chanLe.length; i++) {
+            if (chanLe[i] % 2 === 0) {
+                flagChan = true;
+            }
+            if (chanLe[i] % 2 === 1) {
+                flagLe = true;
+            }
+        }
+        if (flagChan && flagLe === true) {
+            alert("Ouput -1");
+        } else if (flagChan === true && flagLe === false) {
+            alert("Ouput 1");
+        } else if (flagLe === true && flagChan === false) {
+            alert("Ouput 0");
+        }
+    }
+
+    let array = addValue();
+    document.write("Mảng sau khi nhập là : " + array);
+    checkChanLe(array);
+
+</script>
+</body>
+</html>

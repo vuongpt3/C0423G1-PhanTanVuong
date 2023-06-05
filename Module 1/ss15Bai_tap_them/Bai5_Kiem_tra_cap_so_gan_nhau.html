@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra các cặp số gần nhau</title>
+</head>
+<body>
+<script>
+    let number = prompt("Nhập vào độ dài mảng");
+    function checkString(number){
+        let arr = [];
+        while (true){
+            if (!isNaN(number) && number % 2 === 0){
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử tại vị trí : " + (i + 1)));
+                }
+                for (let i = 0; i < arr.length; i+=2) {
+                    if (arr[i] < arr[i + 1]){
+                        alert("Oke");
+                        break;
+                    }else {
+                        alert("NO");
+                        break;
+                    }
+                }
+                break;
+            }else {
+                number = +prompt("Nhập lại , nhập vào số chẵn");
+            }
+        }
+    }
+    checkString(number);
+</script>
+</body>
+</html>

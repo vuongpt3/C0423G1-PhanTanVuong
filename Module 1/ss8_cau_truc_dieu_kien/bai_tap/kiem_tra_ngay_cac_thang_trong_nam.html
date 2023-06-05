@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra ngày các tháng trong năm</title>
+</head>
+<body>
+<script>
+    let month = +prompt("Nhập tháng");
+    let year = +prompt("Nhập năm");
+    if (month < 1 || month > 12 || isNaN(month) || isNaN(year) || year < 0) {
+        alert("Lỗi tháng hoặc năm");
+    } else if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
+        document.write("Tháng " + month + " năm " + year + " có 31 ngày");
+    } else if (month === 2) {
+        if ((year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) || (year % 100 === 0 && year % 400 === 0)) {
+            document.write("Tháng " + month + " năm " + year + " là năm nhuận nên có 29 ngày");
+        } else {
+            document.write("Tháng " + month + " năm " + year + " là năm không nhuận nên có 28 ngày")
+        }
+    } else if (month === 4 || month === 6 || month === 9 || month === 1) {
+        document.write("Tháng " + month + " năm " + year + " có 30 ngày");
+    }
+</script>
+</body>
+</html>

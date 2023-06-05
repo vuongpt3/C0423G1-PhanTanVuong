@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng có đẹp không</title>
+</head>
+<body>
+<script>
+    function addArray(arr){
+        let number = +prompt("Nhập độ dài của mảng");
+        arr = [];
+        while (true){
+            if (!isNaN(number) && number > 0){
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử tại vị trí : " + (i +1)));
+                }
+                break;
+            }else {
+                alert("Độ dài mảng phải là số và lớn hơn 0 , Nhập lại đê");
+            }
+        }
+        return arr;
+    }
+    function isBeautifulArray(array) {
+        for (let i = 0; i < array.length; i++) {
+            let num = array[i];
+            let sum = array.reduce(function (a , b){
+                return a + b
+            } , 0) - num;
+            if (array.includes(sum)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    let arrayValue = addArray();
+    document.write("Mảng bạn vừa nhập phần tử vào : " + arrayValue + "<br>");
+    let beautifulArray = isBeautifulArray(arrayValue)
+    document.write("Mảng đẹp không : " + beautifulArray);
+</script>
+</body>
+</html>

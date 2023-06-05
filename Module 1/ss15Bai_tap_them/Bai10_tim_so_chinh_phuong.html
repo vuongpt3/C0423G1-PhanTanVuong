@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số chính phương</title>
+</head>
+<body>
+<script>
+    function timSoChinhPhuong(){
+        let arr = [];
+        let soChinhPhuong = [];
+        while (true){
+            let number = +prompt("Nhập độ dài của mảng");
+            if (!isNaN(number)){
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử mảng tại vị trí : " + (i + 1)));
+                }
+                document.write("Mảng sau khi thêm là : " + arr + "<br>");
+                break;
+            }else {
+                alert("Độ dài phải là số không phải chữ");
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            if (Number.isInteger(Math.sqrt(arr[i]))){
+                soChinhPhuong.push(arr[i]);
+            }
+            else {
+                document.write(arr[i] + " không phải là chính phương" + "<br>");
+                break;
+            }
+        }
+        document.write("Số chính phương có trong mảng là : " + soChinhPhuong);
+    }
+    timSoChinhPhuong();
+</script>
+</body>
+</html>

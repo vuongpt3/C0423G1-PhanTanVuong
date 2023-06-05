@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số thứ 2 trong mảng</title>
+</head>
+<body>
+<script>
+    function timSoThuHai() {
+        let array = [45,54,12,34,21,87,45];
+        let soLonNhat = 0 ;
+        let soLonThuHai  = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (soLonNhat < array[i] || soLonNhat === array[i]){
+                soLonNhat = array[i];
+            }
+        }
+        document.write("Mảng kiểm tra là : " + array + "<br>");
+        for (let i = 0; i < array.length; i++) {
+            if (soLonThuHai < array[i] && array[i] < soLonNhat){
+                soLonThuHai = array[i];
+            }
+        }
+        document.write("Số lớn nhát là : " + soLonNhat + "<br>");
+        document.write("Số lớn thứ hai là : " + soLonThuHai);
+    }
+
+    timSoThuHai();
+</script>
+</body>
+</html>

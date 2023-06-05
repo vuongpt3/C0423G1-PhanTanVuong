@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lấy các ký tự đầu tiên của chuỗi và in hoa các ký tự đó</title>
+</head>
+<body>
+<script>
+    let str = "object Oriented programming "
+    function checkString(str){
+        let arr = str.trim().split(" ");
+        let array = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j <= i ; j++) {
+                array.push(arr[i][j].charAt(0).toUpperCase());
+                break;
+            }
+        }
+        document.write("Các kí tự đầu in hoa là : " + array.join(""));
+    }
+    document.write("Chuỗi nhập vào là : " + str + "<br>");
+    checkString(str);
+</script>
+</body>
+</html>

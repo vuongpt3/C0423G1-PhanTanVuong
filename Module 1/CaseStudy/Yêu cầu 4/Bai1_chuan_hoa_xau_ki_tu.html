@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuẩn hóa xâu kí tự</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập vào chuỗi tên ");
+    let arr = str.split(/\s+/);
+    let chuHoa = [];
+    let result = [];
+    alert(arr);
+    for (let i = 0; i < arr.length; i++) {
+      let worl = arr[i];
+      chuHoa = worl.charAt(0).toUpperCase() + worl.slice(1).toLowerCase();
+      result.push(chuHoa);
+    }
+    document.write("Chuỗi nhập vào là : " + str + "<br>");
+    document.write("Chuỗi sau khi chuẩn hóa kí tự là : " +result.join(" "));
+</script>
+</body>
+</html>

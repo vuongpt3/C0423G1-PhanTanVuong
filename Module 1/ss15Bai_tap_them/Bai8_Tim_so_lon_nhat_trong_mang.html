@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lớn nhất có trong mảng</title>
+</head>
+<body>
+<script>
+    function addNumber() {
+        let arr = [];
+        while (true) {
+            let number = +prompt("Nhập độ dài của mảng");
+
+            if (!isNaN(number)) {
+                for (let i = 0; i < number; i++) {
+                    let input = +prompt("Nhập phần tử mảng vị trí : " + (i + 1));
+                    arr.push(input);
+                }
+                document.write("Mảng sau khi thêm là : " + arr + "<br>");
+
+                break;
+            } else {
+                alert("Nhập lại , độ dài phần tử là số");
+            }
+        }
+        return arr;
+    }
+    function checkMaxNumber(array) {
+        let  max = array[0]
+        for (let i = 0; i < array.length; i++) {
+            if (max < array[i] || max === array[i]) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+
+    function checkCount(array , max) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (max === array[i]){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    let arr = addNumber();
+    let maxNumber = checkMaxNumber(arr);
+    document.write("Số lớn nhất trong mảng là : " + maxNumber + "<br>");
+    document.write("Số lần số : "+ maxNumber + " : xuất hiện trong mảng là : " + checkCount(arr , maxNumber) + " lần");
+</script>
+</body>
+</html>

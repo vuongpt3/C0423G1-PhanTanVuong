@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tiền thưởng nhân viên</title>
+</head>
+<body>
+<script>
+    let luong = +prompt("Nhập số lương của nhân viên");
+    let hour = +prompt("Nhập giờ làm việc của nhân viên");
+    let thuong = 0;
+    if (hour >= 200){
+       thuong = luong * 0.2;
+       alert("Tiền thưởng của nhân viên là " + thuong);
+    }else if (hour >= 100 && hour < 200){
+        thuong = luong * 0.1;
+        alert("Tiền thưởng của nhân viên là " + thuong);
+    }else {
+        alert("Nhân viên này không được nhận thưởng , lương nhận được là " + luong);
+    }
+</script>
+</body>
+</html>

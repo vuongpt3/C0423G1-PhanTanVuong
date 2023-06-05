@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra dãy số có 4 chữ số và xóa 1 phần tử tại vị trí n</title>
+</head>
+<body>
+<script>
+
+    let number = +prompt("Nhập độ dài của dãy số")
+    function findMaxNumber() {
+        let arr = [];
+       if (number === 4){
+           for (let i = 0; i < number; i++) {
+               arr.push(+prompt("Nhập số thứ " + (i + 1)));
+           }
+       }else {
+           return -1;
+       }
+        document.write("Mảng trước khi xóa và sắp xếp vị trí ra số lớn nhất là : " + arr + "<br>");
+        let n = +prompt("Nhập vị trí mà bạn muốn xóa");
+        arr.splice(n, 1);
+
+        arr.sort(function (a,b) {
+            return b - a;
+        })
+        // console.log(arr);
+        document.write("Vị trí xóa là : " +"[ "+ n+" ]"+"<br>");
+        document.write("Số lớn nhất sau khi xóa phần tử tại vị trí n là :" + arr.join(""));
+    }
+    findMaxNumber();
+
+</script>
+</body>
+</html>

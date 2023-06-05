@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số FIbonaci</title>
+</head>
+<body>
+<script>
+    function checkInput(){
+        let arr = [];
+        while (true){
+            let number = +prompt("Nhập độ dài của mảng");
+            if (!isNaN(number) && number >= 3 && number ){
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử mảng tại vị trí : " + (i + 1)))
+                }
+                break;
+            }else {
+                alert("Độ dài phải là số và lớn hơn 3 ; Nhập lại")
+            }
+        }
+        return arr;
+    }
+    function checkFibonacy(num) {
+        if (num === 0 || num === 1) {
+            return true;
+        }
+
+        let soDauTien = 1;
+        let soThuHai = 1;
+
+        while (soThuHai < num) {
+            const soThuBa = soDauTien + soThuHai;
+            soDauTien = soThuHai;
+            soThuHai = soThuBa;
+        }
+
+        return soThuHai === num;
+    }
+    // function checkFibonacy(array){
+    //
+    // }
+    function outputFibonacy(array){
+        for (let i = 0; i < array.length; i++) {
+            if (!checkFibonacy(array[i])){
+                alert("No");
+                break;
+            }else {
+                alert("Yes");
+                break;
+            }
+        }
+    }
+    let arr = checkInput();
+    document.write("Mảng sau khi nhập là : " + "[ " + arr + " ]");
+    checkFibonacy(arr);
+    outputFibonacy(arr);
+</script>
+</body>
+</html>

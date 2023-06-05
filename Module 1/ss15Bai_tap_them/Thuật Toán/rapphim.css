@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#baoquanh .header img{
+    height: 300px;
+    width: 100%;
+}
+#baoquanh .header ul {
+    background-color: black;
+    float: left;
+    display: flex;
+    list-style-type: none;
+    margin-left: -15px;
+    color: white;
+    font-size: 20px;
+    margin-top: -5px;
+    padding: 5px;
+    text-decoration: none;
+    width: 102%;
+    height: 45px;
+}
+#baoquanh .header ul li {
+    margin-left: 20px;
+    text-decoration: none;
+    padding: 5px;margin-top: 5px;
+    color: white;
+}
+#baoquanh .header ul li a {
+    text-decoration: none;
+}
+#baoquanh .header ul li:hover{
+    background: linear-gradient(135deg, orange 60%, cyan);
+    color: white;
+}
+#baoquanh .header input{
+    position: absolute;
+    margin-top: 20%;
+    right: 5px;
+    height: 40px;
+    width: 350px;
+    font-size: 18px;
+    border-radius: 20px;
+    text-indent: 30px;
+}
+ .table {
+     margin-top: -50px;
+    height: 200px;
+    width: 100%;
+
+}

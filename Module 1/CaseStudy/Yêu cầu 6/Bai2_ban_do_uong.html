@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Bán đồ uống</title>
+</head>
+<body>
+<p id="result"></p>
+<p id="resultPrice" style="text-align: center;font-size: 25px"></p>
+<p id="yourMoneyNow"></p>
+<script>
+    class BuyDrink {
+        constructor(id, img, nameDrink, priceDrink) {
+            this.id = id;
+            this.img = img;
+            this.nameDrink = nameDrink;
+            this.priceDrink = priceDrink;
+        }
+
+        setID(id) {
+            this.id = id;
+        }
+
+        setImg(img) {
+            this.img = img;
+        }
+
+        setName(nameDrink) {
+            this.nameDrink = nameDrink;
+        }
+
+        setPrice(priceDrink) {
+            this.priceDrink = priceDrink;
+        }
+
+        getID() {
+            return this.id;
+        }
+
+        getImg() {
+            return this.img;
+        }
+
+        getName() {
+            return this.nameDrink;
+        }
+
+        getPrice() {
+            return this.priceDrink;
+        }
+    }
+    class yourMoney{
+        constructor(moneyAccount) {
+            this.moneyAccount = moneyAccount;
+        }
+        setMoney(moneyAccount){
+            this.moneyAccount = moneyAccount;
+        }
+        getMoney(){
+            return this.moneyAccount;
+        }
+    }
+    let yourMoneyAccount = [];
+    let yourMoneyAccount1 = new  yourMoney(999999999);
+    yourMoneyAccount.push(yourMoneyAccount1);
+    let drinkList = [];
+    let drinkList1 = new BuyDrink(1, "<img style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://product.hstatic.net/1000075078/product/1675355354_bg-tch-sua-da-no_f521e03af0ec42848f514915999c2798_master.jpg'>", "Cà Phê", 23000);
+    let drinkList2 = new BuyDrink(2, "<img  style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://cdn.tgdd.vn/Files/2018/11/27/1134029/cong-dung-cua-nuoc-cam-tuoi-va-cach-bao-quan-nuoc-cam-tot-nhat-6.jpg'>", "Cam Vắt", 64000);
+    let drinkList3 = new BuyDrink(3, "<img  style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://bizweb.dktcdn.net/100/421/036/files/nguyen-lieu-che-bien-nuoc-ep-carot.jpg?v=1617093099366'>", "Nước ép cà rốt", 57000);
+    let drinkList4 = new BuyDrink(4, "<img  style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSigbY90_CSyhgRqW3Ejbd27wFdktpE2ItfPjw_1LkQuADCtp7Ur88ijwz-FVAQm5GNfRc&usqp=CAU'>", "Nước ép cà chua", 55000);
+    let drinkList5 = new BuyDrink(5, "<img  style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://drinkocany.com/wp-content/uploads/2022/05/Nuoc-uong-dong-chai-Aquafina.jpg'>", "Nước lọc", 40000);
+    let drinkList6 = new BuyDrink(6, "<img  style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://baoangiang.com.vn/image/fckeditor/upload/2022/20220308/images/photo-1646649266219-1646649266321942504101-1646724040034-16467240401171675296455-14573777.jpeg'>", "Nước dừa", 30000);
+    let drinkList7 = new BuyDrink(6, "<img  style='height: 60px;width: 70px;border-radius: 10px;margin-top: 5px' src='https://ruousg.com/wp-content/uploads/2022/08/Ruou-Vang-Y-Roseto-Negroamaro-Puglia-450ml-km.jpg'>", "Rượu vang cao cấp", 999999999);
+    drinkList.push(drinkList1, drinkList2, drinkList3, drinkList4, drinkList5, drinkList6,drinkList7);
+    display(drinkList);
+    function buyOneDrink(index) {
+        let conf = confirm("Bạn muốn mua " + drinkList[index].nameDrink + " phải không ?");
+        if (conf === true) {
+            let drink = +prompt("Bạn muốn mua số lượng bao nhiêu");
+            let sum = drink * drinkList[index].priceDrink
+            document.getElementById("resultPrice").innerHTML = "Số tiền bạn phải trả khi mua " + drink + " " + drinkList[index].nameDrink + " là " + sum;
+            let result = yourMoneyAccount1 - sum;
+            alert("Số tiền còn lại trong tài khoản : " + result);
+        }
+    }
+
+    function display() {
+        let tableString = '<table border="1" style="text-align: center;width: 50%;margin: 0 auto;font-size: 20px">\n' +
+            '    <tr>\n' +
+            '        <th>STT</th>\n' +
+            '        <th>Đồ uống</th>\n' +
+            '        <th>Tên đồ uống</th>\n' +
+            '        <th>Giá</th>\n' +
+            '        <th>Mua</th>\n' +
+            '    </tr>'
+        for (let i = 0; i < drinkList.length; i++) {
+            tableString += '    <tr>\n' +
+                '        <td style="width: 40px">' + drinkList[i].getID() + '</td>\n' +
+                '        <td style="width: 150px">' + drinkList[i].getImg() + '</td>\n' +
+                '        <td style="width: 150px">' + drinkList[i].getName() + '</td>\n' +
+                '        <td style="width: 150px">' + drinkList[i].getPrice() + '</td>\n' +
+                '        <td style="width: 150px"><button onclick="buyOneDrink('+i+')" style="height: 40px;width: 80%;border: none;border-radius: 15px;box-shadow: 1px 1px 3px black">👉Order tại đây</button></td>\n' +
+                '    </tr>'
+        }
+        tableString += "</table>"
+        document.getElementById("result").innerHTML = tableString;
+    }
+    function displayMoney(){
+        document.getElementById("yourMoneyNow").innerHTML = "Số tiền còn lại trong tài khoản của bạn là : " +  yourMoneyAccount.getMoney();
+    }
+    displayMoney();
+</script>
+</body>
+</html>

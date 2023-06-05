@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra phần từ chẵn lẻ</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhập độ dài của mảng");
+    let arr = [];
+    let soLe = 0;
+    let soChan = 0;
+    for (let i = 0; i < number; i++) {
+        arr.push(+prompt("Nhập phần tử của mảng tại vị trí : " + (i + 1)));
+    }
+    document.write("Các phần tử trong mảng mới nhập là : " + arr);
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0){
+            soChan++;
+        }else {
+            soLe++;
+        }
+    }
+    if (soChan === soLe){
+        alert("Ok");
+    }else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>

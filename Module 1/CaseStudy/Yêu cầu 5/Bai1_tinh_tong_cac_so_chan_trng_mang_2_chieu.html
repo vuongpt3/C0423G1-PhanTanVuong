@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng các số chẵn trong mảng 2 chiều</title>
+</head>
+<body>
+<script>
+    function addValueArray() {
+        let arr = [];
+        while (true) {
+            let number = +prompt("Nhập độ dài của mảng cha");
+            if (!isNaN(number) && number > 1) {
+                for (let i = 0; i < number; i++) {
+                    let row = [];
+                    let number = +prompt("Nhập độ dài của mảng con thứ " + (i + 1));
+                    for (let j = 0; j < number; j++) {
+                        let element = +prompt("Nhập phần tử của hàng thứ " + (i + 1) + " tại cột " + (j + 1))
+                        row.push(element);
+                    }
+                    arr.push(row);
+                }
+                break;
+            } else {
+                alert("Độ dài của mảng cha phải là số và lớn hơn 0 , Nhập lại");
+            }
+        }
+        return arr;
+
+    }
+
+    function CaculatorSum(array) {
+        let arr = [];
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j <= array[i].length; j++) {
+                if (array[i][j] % 2 === 0) {
+                    arr.push(array[i][j]);
+                }
+            }
+        }
+        document.write("Số chẵn trong mảng là : " + arr + "<br>");
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+
+    let valueArray = addValueArray();
+    console.log(valueArray);
+    let caculatorSum = CaculatorSum(valueArray);
+    document.write("Tổng các phần tử chẵn trong mảng 2 chiều là : " + caculatorSum);
+</script>
+</body>
+</html>

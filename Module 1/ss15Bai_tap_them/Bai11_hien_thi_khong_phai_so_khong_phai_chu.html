@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra mảng không phải số và không phải là chữ</title>
+</head>
+<body>
+<script>
+
+    let str = "were,.rgmewr@#$$%%^%$^&ket;90639058334229439-035";
+
+    function checkString(str) {
+
+        let arrString = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        let arrNumber = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        let arr = str.split("");
+        let array = [];
+        let kiTu = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (!arrString.includes(arr[i])){
+                array.push(arr[i]);
+            }
+        }
+        for (let i = 0; i < array.length; i++) {
+            if (!arrNumber.includes(array[i])){
+                kiTu.push(array[i]);
+            }
+        }
+        document.write("Mảng không phải chữ và không phải số là : " + kiTu);
+    }
+
+    checkString(str);
+</script>
+</body>
+</html>

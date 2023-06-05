@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số lượng số bằng giá trị trung bình của mảng</title>
+</head>
+<body>
+<script>
+    function addNumber() {
+        let arr = [];
+        while (true) {
+            let number = +prompt("Nhập độ dài của mảng");
+            if (!isNaN(number) && number > 0) {
+                for (let i = 0; i < number; i++) {
+                    arr.push(+prompt("Nhập phần tử mảng vị trí : " + (i + 1)));
+                }
+                document.write("Mảng sau khi thêm là : " + arr + "<br>");
+                break;
+            } else {
+                alert("Độ dài nhập phải là số và lớn hơn 0 , Nhập lại đê");
+            }
+        }
+        return arr;
+    }
+
+    function mediumArray(array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        let medium = sum / array.length;
+        return medium;
+    }
+
+    function checkValue(array, medium) {
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (medium === array[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    let arr = addNumber();
+    let medium = Math.round(mediumArray(arr));
+    document.write("Số trung bình của mảng là : " + medium + "<br>");
+    document.write("Số lượng mà số trung bình xuất hiện trong mảng là : " + checkValue(arr, medium));
+</script>
+</body>
+</html>

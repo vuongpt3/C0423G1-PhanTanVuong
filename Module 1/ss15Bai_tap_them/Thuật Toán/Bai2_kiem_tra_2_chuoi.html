@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra 2 chuỗi hiển thị số lần trung nhau</title>
+</head>
+<body>
+<script>
+    function countCommonCharacters() {
+        let str1 = prompt("Nhập chuỗi thứ nhất");
+        let str2 = prompt("Nhập chuỗi thứ hai");
+        let arr1 = str1.split('');
+        let arr2 = str2.split('');
+        document.write("Phần tử vừa nhập vào mảng 1 là : " + arr1 + "<br>");
+        document.write("Phần tử vừa nhập vào mảng 2 là : " + arr2 + "<br>");
+        let count = 0;
+
+        for (let i = 0; i < arr1.length; i++) {
+            const char = arr1[i];
+
+            if (arr2.includes(char)) {
+                count++;
+                arr2.splice(arr2.indexOf(char), 1);
+            }
+        }
+
+        return count;
+    }
+    let checkString = countCommonCharacters();
+    document.write("Chuỗi có : " + checkString + " kí tự trùng nhau");
+</script>
+</body>
+</html>
