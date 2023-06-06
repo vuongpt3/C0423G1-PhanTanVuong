@@ -1,4 +1,5 @@
 package bai_1_introduction_java.bai_tap;
+
 import java.util.Scanner;
 
 public class ApplicationToReadNumbersIntoLetters {
@@ -6,32 +7,40 @@ public class ApplicationToReadNumbersIntoLetters {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ask for the number to read : ");
         int number = sc.nextInt();
-        if (number < 0 || number > 999){
+        if (number < 0 || number > 999) {
             System.out.println("Out of ability");
-        }else if (number <= 10){
+        } else if (number <= 10) {
             String world = checkUnit(number);
             System.out.println(world);
-        }else if (number < 20){
+        } else if (number < 20) {
             String world = checkUnits1(number);
             System.out.println(world);
-        }else if (number < 100){
+        } else if (number < 100) {
             int ten = number / 10;
             int unnit = number % 10;
             String word = checkDozens(ten) + " " + checkUnit(unnit);
             System.out.println(word);
-        }else if (number < 999){
+        } else if (number < 999) {
             int hundred = number / 100;
             int hundredResidual = number % 100;
-            int ten = hundredResidual / 10;
-            int unnit = hundredResidual % 10;
-            String world = checkUnit(hundred) + " hundred " + checkDozens(ten) + " " + checkUnit(unnit);
-            System.out.println(world);
+            System.out.println(hundredResidual);
+            if (hundredResidual < 20 && hundredResidual > 10) {
+                int ten = hundredResidual / 10;
+                String world = checkUnit(hundred) + " hundred " + checkDozens(ten);
+                System.out.println(world);
+            } else if (hundredResidual > 20) {
+                int ten = hundredResidual / 10;
+                int unit = hundredResidual % 10;
+                String world = checkUnit(hundred) + " hundred " + checkDozens(ten) + checkUnit(unit);
+                System.out.println(world);
+            }
         }
-      sc.close();
+        sc.close();
     }
+
     public static String checkUnit(int units) {
         switch (units) {
-            case 0 :
+            case 0:
                 return "zero";
             case 1:
                 return "one";
@@ -57,6 +66,7 @@ public class ApplicationToReadNumbersIntoLetters {
                 return "";
         }
     }
+
     public static String checkUnits1(int units1) {
         switch (units1) {
             case 11:
@@ -81,6 +91,7 @@ public class ApplicationToReadNumbersIntoLetters {
                 return "";
         }
     }
+
     public static String checkDozens(int dozens) {
         switch (dozens) {
             case 2:
@@ -96,7 +107,7 @@ public class ApplicationToReadNumbersIntoLetters {
             case 7:
                 return "seventy";
             case 8:
-                return "checkUnit";
+                return "eighty";
             case 9:
                 return "ninety";
             default:
