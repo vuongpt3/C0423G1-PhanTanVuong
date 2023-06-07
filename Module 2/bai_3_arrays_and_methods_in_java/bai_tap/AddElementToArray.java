@@ -1,4 +1,4 @@
-package bai3_arrays_and_methods_in_java.bai_tap;
+package bai_3_arrays_and_methods_in_java.bai_tap;
 
 public class AddElementToArray {
     public static void main(String[] args) {

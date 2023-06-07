@@ -1,0 +1,29 @@
+package bai_4_classes_and_objects_in_java.bai_tap.bai_2_construct_the_stopwatch_class;
+
+public class GetElapsedTime {
+    double startTime;
+    double endTime;
+
+    public GetElapsedTime(double startTime, double endTime) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
+
+    public GetElapsedTime() {
+
+    }
+
+    public double getStartTime() {
+        startTime = System.currentTimeMillis();
+        return startTime;
+    }
+
+    public double getEndTime() {
+        endTime = System.currentTimeMillis();
+        return endTime;
+    }
+
+    public double getElapsedTime() {
+        return endTime - startTime;
+    }
+}
