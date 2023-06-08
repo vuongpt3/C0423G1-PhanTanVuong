@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="217bc6ab-b9b3-4a6a-802e-d7730e2fbbf2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Module 2/bai_2_loop_in_java/bai_tap/DisplayType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/bai_2_loop_in_java/bai_tap/DisplayType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_1_introduction_java/bai_tap/ApplicationToReadNumbersIntoLetters.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_1_introduction_java/bai_tap/ApplicationToReadNumbersIntoLetters.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_1_introduction_java/bai_tap/CurrencyConversion.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_1_introduction_java/bai_tap/CurrencyConversion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_2_loop_in_java/bai_tap/DisplayType.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_2_loop_in_java/bai_tap/DisplayType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module 2/ExamAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_4_classes_and_objects_in_java/bai_tap/bai_3_build_the_fan_class/MainFanClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_4_classes_and_objects_in_java/bai_tap/bai_3_build_the_fan_class/MainFanClass.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +35,7 @@
       <updated>1685954050477</updated>
       <workItem from="1685954056689" duration="49000" />
       <workItem from="1686016720858" duration="35000" />
+      <workItem from="1686130797991" duration="69000" />
     </task>
     <servers />
   </component>

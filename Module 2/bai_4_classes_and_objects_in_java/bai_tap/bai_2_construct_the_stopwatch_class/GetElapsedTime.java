@@ -14,13 +14,11 @@ public class GetElapsedTime {
     }
 
     public double getStartTime() {
-        startTime = System.currentTimeMillis();
-        return startTime;
+        return startTime = System.currentTimeMillis();
     }
 
     public double getEndTime() {
-        endTime = System.currentTimeMillis();
-        return endTime;
+        return endTime = System.currentTimeMillis();
     }
 
     public double getElapsedTime() {
