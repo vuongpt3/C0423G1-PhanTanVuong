@@ -9,19 +9,23 @@ public class Cylinder extends Circle{
     }
 
     public double getHeight() {
+
         return height;
     }
 
     public void setHeight(double height) {
+
         this.height = height;
     }
 
     public double getVolume() {
+
         return getArea() * height;
     }
 
     @Override
     public String toString() {
+
         return "Cylinder[base=" + super.toString() + ", height=" + height + "]";
     }
 }

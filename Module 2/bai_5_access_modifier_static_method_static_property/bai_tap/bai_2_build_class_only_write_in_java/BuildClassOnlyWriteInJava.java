@@ -9,14 +9,17 @@ public class BuildClassOnlyWriteInJava {
         classes = "C0323G1";
     }
 
-    public void setName(String name) {this.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setClasses(String classes) {
+
         this.classes = classes;
     }
 
     public String getName() {
+
         return name;
     }
 
