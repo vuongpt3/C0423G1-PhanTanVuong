@@ -1,7 +1,9 @@
 package bai_4_classes_and_objects_in_java.bai_tap.bai1_build_quadraticequation_class_quadratic_equation;
 
 public class QuadraticEquation {
-    double a, b, c;
+    public double a;
+    public double b;
+    public double c;
 
     public QuadraticEquation(double a, double b, double c) {
         this.a = a;
