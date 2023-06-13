@@ -1,8 +1,8 @@
 package bai_6_inheritane.bai_tap.bai_1_circle_class_and_cylinder_class;
 
 public class Circle {
-    public double radius;
-    public String color;
+    private double radius;
+     private String color;
 
     public Circle(double radius, String color) {
         this.radius = radius;

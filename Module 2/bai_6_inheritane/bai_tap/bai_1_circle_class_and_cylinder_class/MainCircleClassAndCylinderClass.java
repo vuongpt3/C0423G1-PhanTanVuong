@@ -3,6 +3,8 @@ package bai_6_inheritane.bai_tap.bai_1_circle_class_and_cylinder_class;
 public class MainCircleClassAndCylinderClass {
     public static void main(String[] args) {
         Circle circle = new Circle(5.0, "Red");
+        circle.setRadius(5.0);
+        circle.setColor("Rainbow");
         System.out.println("Circle radius: " + circle.getRadius());
         System.out.println("Circle color: " + circle.getColor());
         System.out.println("Circle area: " + circle.getArea());

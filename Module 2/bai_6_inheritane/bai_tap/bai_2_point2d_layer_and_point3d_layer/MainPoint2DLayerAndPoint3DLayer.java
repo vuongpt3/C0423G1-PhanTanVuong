@@ -1,4 +1,4 @@
-package bai_6_inheritane.bai_tap.bai_2_point2D_layer_and_point3D_layer;
+package bai_6_inheritane.bai_tap.bai_2_point2d_layer_and_point3d_layer;
 
 public class MainPoint2DLayerAndPoint3DLayer {
     public static void main(String[] args) {

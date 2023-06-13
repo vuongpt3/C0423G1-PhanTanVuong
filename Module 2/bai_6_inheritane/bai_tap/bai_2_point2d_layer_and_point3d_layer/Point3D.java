@@ -1,7 +1,7 @@
-package bai_6_inheritane.bai_tap.bai_2_point2D_layer_and_point3D_layer;
+package bai_6_inheritane.bai_tap.bai_2_point2d_layer_and_point3d_layer;
 
 public class Point3D extends Point2D {
-    public float z;
+    private float z;
 
     public Point3D(float x, float y, float z) {
         super(x, y);

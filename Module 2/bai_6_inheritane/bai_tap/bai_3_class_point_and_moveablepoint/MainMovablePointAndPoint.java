@@ -1,4 +1,4 @@
-package bai_6_inheritane.bai_tap.bai_3_class_point_and_moveablePoint;
+package bai_6_inheritane.bai_tap.bai_3_class_point_and_moveablepoint;
 
 public class MainMovablePointAndPoint {
     public static void main(String[] args) {

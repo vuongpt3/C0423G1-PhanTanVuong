@@ -1,15 +1,15 @@
-package bai_6_inheritane.bai_tap.bai_3_class_point_and_moveablePoint;
+package bai_6_inheritane.bai_tap.bai_2_point2d_layer_and_point3d_layer;
 
-public class Point {
-    public float x;
-    public float y;
+public class Point2D {
+    private float x;
+    private float y;
 
-    public Point(float x, float y) {
+    public Point2D(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
-    public Point() {
+    public Point2D() {
         this.x = 0.0f;
         this.y = 0.0f;
     }
@@ -41,7 +41,7 @@ public class Point {
 
     public float[] getXY() {
 
-        return new float[]{x, y};
+        return new float[] { x, y };
     }
 
     @Override

@@ -1,8 +1,8 @@
-package bai_6_inheritane.bai_tap.bai_3_class_point_and_moveablePoint;
+package bai_6_inheritane.bai_tap.bai_3_class_point_and_moveablepoint;
 
 public class MovablePoint extends Point{
-    public float xSpeed;
-    public float ySpeed;
+    private float xSpeed;
+    private float ySpeed;
 
     public MovablePoint(float x, float y, float xSpeed, float ySpeed) {
         super(x, y);
