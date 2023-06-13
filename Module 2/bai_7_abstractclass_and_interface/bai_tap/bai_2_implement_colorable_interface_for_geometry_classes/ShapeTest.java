@@ -7,7 +7,13 @@ public class ShapeTest {
         shapes[1] = new Rectangle(12, 18);
         shapes[2] = new Square(9);
         for (Shape shape : shapes) {
-            System.out.println("Area : " + shape.getArea());
+            System.out.println("Area: " + shape.getArea());
+
+            if (shape instanceof Colorable) {
+                Colorable colorable = (Colorable) shape;
+                colorable.howToColor();
+            }
+
             System.out.println();
         }
     }

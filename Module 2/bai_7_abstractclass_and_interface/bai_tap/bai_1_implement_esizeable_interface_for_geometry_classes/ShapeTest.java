@@ -11,11 +11,18 @@ public class ShapeTest {
         shapes[2] = new Square(5);
 
         for (Resizeable shape : shapes) {
-            Shape shapeWithArea = (Shape) shape;
-            System.out.println("Before resizing - Area: " + shapeWithArea.getArea());
+            if (shape instanceof Shape) {
+                Shape shapeWithArea = (Shape) shape;
+                System.out.println("Before resizing - Area: " + shapeWithArea.getArea());
+            }
+
             double percent = random.nextInt(100) + 1;
             shape.resize(percent);
-            System.out.println("After resizing (" + percent + "%) - Area: " + shapeWithArea.getArea());
+
+            if (shape instanceof Shape) {
+                Shape shapeWithArea = (Shape) shape;
+                System.out.println("After resizing (" + percent + "%) - Area: " + shapeWithArea.getArea());
+            }
 
             System.out.println();
         }
