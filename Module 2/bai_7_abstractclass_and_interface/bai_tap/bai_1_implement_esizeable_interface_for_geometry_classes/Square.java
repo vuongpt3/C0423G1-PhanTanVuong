@@ -1,19 +1,46 @@
 package bai_7_abstractclass_and_interface.bai_tap.bai_1_implement_esizeable_interface_for_geometry_classes;
 
-class Square implements Resizeable, Shape {
-    private double side;
+class  Square extends Rectangle{
+    public Square() {
+    }
 
     public Square(double side) {
-        this.side = side;
+        super(side, side);
+    }
+
+    public Square(double side, String color, boolean filled) {
+        super(side, side, color, filled);
+    }
+
+    public double getSide() {
+        return getWidth();
+    }
+
+    public void setSide(double side) {
+        setWidth(side);
+        setLength(side);
     }
 
     @Override
-    public double getArea() {
-        return side * side;
+    public void setWidth(double width) {
+        setSide(width);
+    }
+
+    @Override
+    public void setLength(double length) {
+        setSide(length);
+    }
+
+    @Override
+    public String toString() {
+        return "A Square with side="
+                + getSide()
+                + ", which is a subclass of "
+                + super.toString();
     }
 
     @Override
     public void resize(double percent) {
-        side *= (1 + percent / 100);
+        super.resize(percent);
     }
 }

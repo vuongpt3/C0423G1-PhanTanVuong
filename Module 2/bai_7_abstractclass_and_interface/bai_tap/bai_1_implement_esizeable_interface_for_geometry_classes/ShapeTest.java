@@ -4,27 +4,33 @@ import java.util.Random;
 
 public class ShapeTest {
     public static void main(String[] args) {
-        Random random = new Random();
-        Resizeable[] shapes = new Resizeable[3];
-        shapes[0] = new Circle(5);
-        shapes[1] = new Rectangle(4, 6);
-        shapes[2] = new Square(5);
+        Rectangle rectangle = new Rectangle(5, 10);
+        System.out.println(rectangle);
+        rectangle.resize(50);
+        System.out.println(rectangle);
 
-        for (Resizeable shape : shapes) {
-            if (shape instanceof Shape) {
-                Shape shapeWithArea = (Shape) shape;
-                System.out.println("Before resizing - Area: " + shapeWithArea.getArea());
-            }
+        Square square = new Square(5);
+        System.out.println(square);
+        square.resize(20);
+        System.out.println(square);
 
-            double percent = random.nextInt(100) + 1;
-            shape.resize(percent);
+        Circle circle = new Circle(5);
+        System.out.println(circle);
+        circle.resize(40);
+        System.out.println(circle);
 
-            if (shape instanceof Shape) {
-                Shape shapeWithArea = (Shape) shape;
-                System.out.println("After resizing (" + percent + "%) - Area: " + shapeWithArea.getArea());
-            }
+        Shape[] shape = new Shape[3];
+        shape[0] = rectangle;
+        shape[1] = square;
+        shape[2] = circle;
 
-            System.out.println();
+        System.out.println();
+        System.out.println();
+        for (Shape value : shape) {
+            value.resize(Math.random() * 99 + 1);
         }
+        System.out.println(rectangle);
+        System.out.println(square);
+        System.out.println(circle);
     }
 }
