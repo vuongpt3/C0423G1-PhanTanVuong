@@ -11,8 +11,8 @@ public class MyListTest {
         for (int i = 0; i < myList.size(); i++) {
             System.out.println(myList.get(i));
         }
-
-        System.out.println("Removing element at index 1:");
+        System.out.println("Size of Array before removal : " + myList.size());
+        System.out.println("Remove 1 element at random position");
         String removedElement = myList.remove(1);
         System.out.println("Removed element: " + removedElement);
 
@@ -20,5 +20,6 @@ public class MyListTest {
         for (int i = 0; i < myList.size(); i++) {
             System.out.println(myList.get(i));
         }
+        System.out.println("Size of Array after removal : " + myList.size());
     }
 }

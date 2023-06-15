@@ -38,6 +38,15 @@ public class MyList<E> {
         return removedElement;
     }
 
+    @Override
+    public Object clone() {
+        MyList<E> clone = new MyList<>(elements.length);
+        for (Object o : elements) {
+            clone.add((E) o);
+        }
+        return clone;
+    }
+
     public boolean contains(E o) {
         return indexOf(o) >= 0;
     }
