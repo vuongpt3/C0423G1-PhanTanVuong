@@ -1,9 +1,9 @@
-package bai_11_dsa_stack_queue.bai_1_reverse_elements_in_integer_array_using_stack;
+package bai_11_dsa_stack_queue.bai_tap.bai_1_reverse_element_from_decimal_to_binary;
 
 import java.util.Stack;
 
 public class ArrayReversal {
-    public static void reverseArray(int[] arr) {
+    private static void reverseArray(int[] arr) {
         Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < arr.length; i++) {
@@ -27,14 +27,14 @@ public class ArrayReversal {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 11, 12, 13, 14, 15};
-        System.out.println("Array before inversion");
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println("Number before reverse : ");
         for (int num : arr) {
-            System.out.println(num + " ");
+            System.out.print(num + " , ");
         }
+        System.out.println();
         reverseArray(arr);
-
-        System.out.println("Array after inversion");
+        System.out.println("Number after reverse : ");
         for (int num : arr) {
             System.out.print(num + " , ");
         }
@@ -42,11 +42,12 @@ public class ArrayReversal {
         System.out.println();
 
         String str = "kwjfjggrrotiogefw";
-        String reverseString1 = reverseString(str);
+        String reverseString1 =  reverseString(str);
         System.out.println("Character before reverse :");
         System.out.println(str);
         System.out.println();
         System.out.println("Character after reverse :");
         System.out.print(reverseString1);
+
     }
 }
