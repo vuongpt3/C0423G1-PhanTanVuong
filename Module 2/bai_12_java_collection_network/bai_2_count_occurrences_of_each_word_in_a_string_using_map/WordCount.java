@@ -10,28 +10,23 @@ public class WordCount {
         System.out.println("Enter a string : ");
         String input = scanner.nextLine();
 
-        // Xóa các ký tự đặc biệt và chuyển thành chữ thường
-        input= input.replaceAll("[^a-zA-Z]","").toLowerCase();
+        input = input.replaceAll("[^a-zA-Z]", "").toLowerCase();
 
-        // Tách các từ
         String[] words = input.split("\\s+");
 
-        // Sử dụng TreeMap để lưu trữ từ và số lần xuất hiện
-        Map<String , Integer> wordCountMap = new TreeMap<>();
+        Map<String, Integer> wordCountMap = new TreeMap<>();
 
-        // Đếm số lần xuất hiện của từng từ
-        for (String word : words){
-            if (wordCountMap.containsKey(word)){
-                // Tăng giá trị lên 1 nếu từ đã tồn tại trong map
-                wordCountMap.put(word, wordCountMap.get(word)+ 1);
-            }else {
-                // Thêm từ mới vào map với giá trị là 1
-                wordCountMap.put(word , 1);
+        for (String word : words) {
+            if (wordCountMap.containsKey(word)) {
+                wordCountMap.put(word, wordCountMap.get(word) + 1);
+            } else {
+
+                wordCountMap.put(word, 1);
             }
         }
 
         System.out.println("Word Count : ");
-        for (String word : wordCountMap.keySet()){
+        for (String word : wordCountMap.keySet()) {
             int count = wordCountMap.get(word);
             System.out.println(word + " " + count);
         }

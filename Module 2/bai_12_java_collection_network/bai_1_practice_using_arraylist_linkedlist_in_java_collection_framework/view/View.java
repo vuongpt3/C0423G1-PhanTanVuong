@@ -4,6 +4,7 @@ import bai_12_java_collection_network.bai_1_practice_using_arraylist_linkedlist_
 
 public class View {
     public static void main(String[] args) {
-        ProductController.showMenu();
+        ProductController productController = new ProductController();
+        productController.showMenu();
     }
 }

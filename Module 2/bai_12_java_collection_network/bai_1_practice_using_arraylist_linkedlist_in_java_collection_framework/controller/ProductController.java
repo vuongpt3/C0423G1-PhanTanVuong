@@ -12,7 +12,7 @@ public class ProductController {
 
     public static ProductService productService = new ProductService();
 
-    public static void showMenu() {
+    public void showMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         do {
