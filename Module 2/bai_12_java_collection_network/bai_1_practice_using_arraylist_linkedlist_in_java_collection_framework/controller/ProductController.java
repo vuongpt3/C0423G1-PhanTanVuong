@@ -16,7 +16,7 @@ public class ProductController {
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         do {
-            System.out.println("=======Product Manager==========" +
+            System.out.println("============Manage the most expensive product in the world============" +
                     "\n1. Thêm sản phẩm" +
                     "\n2. Sửa sản phẩm" +
                     "\n3. Xóa sản phẩm" +
@@ -50,28 +50,18 @@ public class ProductController {
                                 "\n2. Giảm dần");
                         int choose1 = Integer.parseInt(scanner.nextLine());
                         if (choose1 == 1) {
-                            Collections.sort(ProductRepository.productArrayList, new Comparator<Product>() {
-                                @Override
-                                public int compare(Product o1, Product o2) {
-                                    return o1.getPrice() > o2.getPrice() ? 1 : -1;
-                                }
-                            });
+                            productService.sortUpProduct();
                             productService.displayProducts();
                             break;
                         } else if (choose1 == 2) {
-                            Collections.sort(ProductRepository.productArrayList, new Comparator<Product>() {
-                                @Override
-                                public int compare(Product o1, Product o2) {
-                                    return o1.getPrice() > o2.getPrice() ? -1 : 1;
-                                }
-                            });
+                            productService.sortDownProduct();
                             productService.displayProducts();
                             break;
                         }
                     } while (flag1);
                     break;
                 default:
-                    System.out.println("Oke");
+                    System.out.println("Wrong choice bro");
             }
         } while (flag);
     }

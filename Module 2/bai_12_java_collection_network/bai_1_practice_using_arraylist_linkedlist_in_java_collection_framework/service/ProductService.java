@@ -4,6 +4,8 @@ import bai_12_java_collection_network.bai_1_practice_using_arraylist_linkedlist_
 import bai_12_java_collection_network.bai_1_practice_using_arraylist_linkedlist_in_java_collection_framework.repository.ProductRepository;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class ProductService implements IProductService {
@@ -86,19 +88,23 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public double sortUpProductComparator() {
-        Product a = new Product();
-        Product b = new Product();
-
-        return a.getPrice() - b.getPrice();
+    public void sortUpProduct() {
+        Collections.sort(ProductRepository.productArrayList, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return o1.getPrice() > o2.getPrice() ? 1 : -1;
+            }
+        });
     }
 
     @Override
-    public double sortDownProductComparator() {
-        Product a = new Product();
-        Product b = new Product();
-
-        return b.getPrice() - a.getPrice();
+    public void sortDownProduct() {
+        Collections.sort(ProductRepository.productArrayList, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                return o1.getPrice() > o2.getPrice() ? -1 : 1;
+            }
+        });
     }
 
 

@@ -15,7 +15,8 @@ public interface IProductService {
 
     void search();
 
-    double sortUpProductComparator();
+    void sortUpProduct();
 
-    double sortDownProductComparator();
+    void sortDownProduct();
+
 }
