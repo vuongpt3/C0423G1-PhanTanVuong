@@ -29,6 +29,7 @@ public class BinarySearchRecursive {
 
         System.out.println("Enter the elements in the array");
         for (int i = 0; i < n; i++) {
+            System.out.println("At position : " + (i + 1));
             array[i] = scanner.nextInt();
         }
         Arrays.sort(array);

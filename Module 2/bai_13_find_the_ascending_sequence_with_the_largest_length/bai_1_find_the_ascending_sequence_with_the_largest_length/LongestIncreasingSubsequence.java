@@ -6,28 +6,22 @@ import java.util.Scanner;
 public class LongestIncreasingSubsequence {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter string");
-        String str = scanner.nextLine();
+        System.out.print("Enter one String : ");
+        String input = scanner.nextLine();
+        String sortedSubstring = getSortedSubstring(input);
+        System.out.println("The substrings are sorted from smallest to largest : " + sortedSubstring);
+    }
 
-        LinkedList<Character> max = new LinkedList<>();
-
-        for (int i = 0; i < str.length(); i++) {
-            LinkedList<Character> list = new LinkedList<>();
-            list.add(str.charAt(i));
-            for (int j = i + 1; j < str.length(); j++) {
-                if (str.charAt(j) > list.getLast()) {
-                    list.add(str.charAt(j));
-                }
-            }
-            if (list.size() > max.size()) {
-                max.clear();
-                max.addAll(list);
-            }
-            list.clear();
+    public static String getSortedSubstring(String input) {
+        LinkedList<Character> characters = new LinkedList<>();
+        for (char c : input.toCharArray()) {
+            characters.add(c);
         }
-        for (Character cha : max) {
-            System.out.print(cha);
+        characters.sort(Character::compareTo);
+        StringBuilder sortedSubstring = new StringBuilder();
+        for (char c : characters) {
+            sortedSubstring.append(c);
         }
-        System.out.println();
+        return sortedSubstring.toString();
     }
 }
