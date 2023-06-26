@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="217bc6ab-b9b3-4a6a-802e-d7730e2fbbf2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Module 2/bai_13_find_the_ascending_sequence_with_the_largest_length/bai_1_find_the_ascending_sequence_with_the_largest_length/LongestIncreasingSubsequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Module 2/bai_13_find_the_ascending_sequence_with_the_largest_length/bai_2_implement_binary_search_algorithm_using_recursion/BinarySearchRecursive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +38,7 @@
       <workItem from="1686813198830" duration="7000" />
       <workItem from="1687193759230" duration="6000" />
       <workItem from="1687246763527" duration="1000" />
+      <workItem from="1687368514778" duration="1871000" />
     </task>
     <servers />
   </component>
