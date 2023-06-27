@@ -18,10 +18,10 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public ArrayList<Product> displayProdcut() {
-        List<Product> listProductFromFile = ReadAndWrite.readBinaryFile(products.toString());
-        for (Product product : listProductFromFile) {
-            System.out.println(product);
-        }
+        products = ReadAndWrite.readBinaryFile(products.toString());
+//        for (Product product : listProductFromFile) {
+//            System.out.println(product);
+//        }
         return (ArrayList<Product>) products;
     }
 
@@ -31,13 +31,8 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public void search(String name) {
-        for (Product product : products){
-            if (product.getName().equalsIgnoreCase(name)){
-                System.out.println(product);
-                return;
-            }
-        }
-        System.out.println("Không tìm thấy tên sản phẩm này");
+    public ArrayList<Product> search(String name) {
+        products = ReadAndWrite.readBinaryFile(products.toString());
+        return (ArrayList<Product>) products;
     }
 }

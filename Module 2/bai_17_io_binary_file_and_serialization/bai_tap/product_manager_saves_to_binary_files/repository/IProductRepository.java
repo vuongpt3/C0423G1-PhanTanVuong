@@ -7,5 +7,5 @@ import java.util.ArrayList;
 public interface IProductRepository {
     ArrayList<Product> displayProdcut();
     void add(Product product);
-    void search(String name);
+    ArrayList<Product> search(String name);
 }
