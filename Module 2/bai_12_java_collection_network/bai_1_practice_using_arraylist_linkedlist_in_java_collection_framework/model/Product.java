@@ -1,6 +1,8 @@
 package bai_12_java_collection_network.bai_1_practice_using_arraylist_linkedlist_in_java_collection_framework.model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int id;
     private String name;
     private double price;
