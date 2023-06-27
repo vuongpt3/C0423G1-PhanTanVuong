@@ -41,14 +41,13 @@ public class ProductService implements IProductService{
     public void search() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập tên muốn tìm");
-        String code = scanner.nextLine();
+        String name = scanner.nextLine();
         for (Product product : productArrayList){
-            if (product.getName().equalsIgnoreCase(code)){
+            if (product.getName().equalsIgnoreCase(name)){
                 System.out.println(product);
                 return;
             }
         }
             System.out.println("Không tìm thấy cái tên này");
     }
-
 }

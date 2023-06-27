@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWrite {
-    public static void writeBinaryFile(String pathFile , List<Product> productList){
+    public static void writeBinaryFile(String pathFile,List<Product> productList){
         File file = new File(pathFile);
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;

@@ -15,29 +15,29 @@ public class ProductRepository implements IProductRepository {
         products.add(new Product(4,"MacBook", 490000,"SamSung","Quá ngon"));
         products.add(new Product(5,"Máy lạnh", 490000,"Apple","Quá vip"));
     }
-    ReadAndWrite readAndWrite = new ReadAndWrite();
-
 
     @Override
     public ArrayList<Product> displayProdcut() {
-        readAndWrite.writeBinaryFile(products);
-        for (Product product : products){
+        List<Product> listProductFromFile = ReadAndWrite.readBinaryFile(products.toString());
+        for (Product product : listProductFromFile) {
             System.out.println(product);
         }
-        return productArrayList;
+        return (ArrayList<Product>) products;
     }
 
     @Override
     public void add(Product product) {
-        List<Product> productList = new ArrayList<>();
-        productList = (ArrayList<Product>) ReadAndWrite.readBinaryFile(PRODUCT_PATH_BINARY_FILE);
-        productList.add(product);
-        ReadAndWrite.writeBinaryFile(PRODUCT_PATH_BINARY_FILE , productList);
+       products.add(product);
     }
 
     @Override
     public void search(String name) {
-        List<Product> productList = new ArrayList<>();
-
+        for (Product product : products){
+            if (product.getName().equalsIgnoreCase(name)){
+                System.out.println(product);
+                return;
+            }
+        }
+        System.out.println("Không tìm thấy tên sản phẩm này");
     }
 }
