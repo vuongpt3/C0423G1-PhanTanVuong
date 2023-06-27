@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ReadAndWrite {
     public static void writeBinaryFile(String pathFile,List<Product> productList){
+        pathFile = "C:\\C0423G1-PhanTanVuong\\Module 2\\bai_17_io_binary_file_and_serialization\\bai_tap\\product_manager_saves_to_binary_files\\data\\product.txt";
         File file = new File(pathFile);
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
@@ -24,6 +25,7 @@ public class ReadAndWrite {
         }
     }
     public static List<Product> readBinaryFile(String pathFile){
+        pathFile = "C:\\C0423G1-PhanTanVuong\\Module 2\\bai_17_io_binary_file_and_serialization\\bai_tap\\product_manager_saves_to_binary_files\\data\\product.txt";
         List<Product> productList = new ArrayList<>();
         File file = new File(pathFile);
         FileInputStream fileInputStream = null;
