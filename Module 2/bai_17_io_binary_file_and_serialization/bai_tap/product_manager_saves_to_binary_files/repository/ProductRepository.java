@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository implements IProductRepository {
+    public static final String PATH_FILE = "C:\\C0423G1-PhanTanVuong\\Module 2\\bai_17_io_binary_file_and_serialization\\bai_tap\\product_manager_saves_to_binary_files\\data\\product.txt";
     static public List<Product> products = new ArrayList<>();
     static {
         products.add(new Product(1,"Máy ảnh", 490000,"Sony","Quá nuột"));
@@ -27,7 +28,10 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void add(Product product) {
-       products.add(product);
+        ArrayList<Product> productArrayList = new ArrayList<>();
+        productArrayList = (ArrayList<Product>) ReadAndWrite.readBinaryFile(PATH_FILE);
+       productArrayList.add(product);
+       ReadAndWrite.writeBinaryFile(PATH_FILE , productArrayList);
     }
 
     @Override

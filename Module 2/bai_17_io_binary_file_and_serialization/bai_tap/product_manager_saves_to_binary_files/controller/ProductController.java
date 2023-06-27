@@ -1,12 +1,13 @@
 package bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.controller;
 
 import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.model.Product;
+import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.service.IProductService;
 import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.service.ProductService;
 
 import java.util.Scanner;
 
 public class ProductController {
-    public final ProductService productService = new ProductService();
+    public final IProductService productService = new ProductService();
     public void showMenu(){
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;

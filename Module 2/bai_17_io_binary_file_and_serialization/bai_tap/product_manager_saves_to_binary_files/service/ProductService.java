@@ -1,15 +1,17 @@
 package bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.service;
 
 import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.model.Product;
+import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.repository.IProductRepository;
 import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.repository.ProductRepository;
 import bai_17_io_binary_file_and_serialization.bai_tap.product_manager_saves_to_binary_files.util.ReadAndWrite;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductService implements IProductService{
-    public final ProductRepository productRepository = new ProductRepository();
+    public final IProductRepository productRepository = new ProductRepository();
     ArrayList<Product> productArrayList = productRepository.displayProdcut();
 
     @Override
@@ -34,6 +36,9 @@ public class ProductService implements IProductService{
         String describe = scanner.nextLine();
         Product product = new Product(id , name , price, manufacturedGoods,describe);
         productRepository.add(product);
+        File pathFile = new File("C:\\C0423G1-PhanTanVuong\\Module 2\\bai_17_io_binary_file_and_serialization\\bai_tap\\product_manager_saves_to_binary_files\\data\\product.txt");
+
+
         display();
     }
 
