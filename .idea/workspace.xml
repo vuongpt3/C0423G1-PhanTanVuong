@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="217bc6ab-b9b3-4a6a-802e-d7730e2fbbf2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Module 2/error/arraylist_linkedlist/AddRemoveLinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 2/error/arraylist_linkedlist/ArrayListAndLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/error/arraylist_linkedlist/ArrayListAndLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_18_string_and_regex/bai_tap/bai_1_validate_the_name_of_the_class/ValidateTheNameOfTheClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_18_string_and_regex/bai_tap/bai_1_validate_the_name_of_the_class/ValidateTheNameOfTheClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_18_string_and_regex/bai_tap/bai_2_validate_phone_number/ValidatePhoneNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/bai_18_string_and_regex/bai_tap/bai_2_validate_phone_number/ValidatePhoneNumber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 2/out/production/Module 2/error/arraylist_linkedlist/ArrayListAndLinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/Module 2/out/production/Module 2/error/arraylist_linkedlist/ArrayListAndLinkedList.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +44,7 @@
       <workItem from="1687193759230" duration="6000" />
       <workItem from="1687246763527" duration="1000" />
       <workItem from="1687368514778" duration="1871000" />
+      <workItem from="1687888574726" duration="417000" />
     </task>
     <servers />
   </component>
