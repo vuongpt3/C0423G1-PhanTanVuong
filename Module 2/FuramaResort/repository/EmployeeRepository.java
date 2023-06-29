@@ -24,7 +24,7 @@ public class EmployeeRepository implements IEmployeeRepository{
         String[] data = null;
         for (String s : stringList){
             data = s.split(",");
-            Employee employee = new Employee(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],Integer.parseInt(data[9]));
+            Employee employee = new Employee(data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8],data[9]);
             employeeList.add(employee);
         }
         return (ArrayList<Employee>) employeeList;
