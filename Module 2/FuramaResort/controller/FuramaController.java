@@ -1,9 +1,12 @@
 package FuramaResort.controller;
 
+import FuramaResort.service.EmployeeService;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FuramaController {
+    EmployeeService employeeService = new EmployeeService();
     Scanner scanner = new Scanner(System.in);
     boolean flag = true;
 
@@ -29,15 +32,28 @@ public class FuramaController {
                             int choose1 = Integer.parseInt(scanner.nextLine());
 
                             if (choose1 == 1) {
-
+                                employeeService.display();
+                                System.out.println();
+                                displayMainMenu();
                                 break;
                             } else if (choose1 == 2) {
-
+                                employeeService.addEmployee();
+                                System.out.println("|||||");
+                                System.out.println("||||||||||");
+                                System.out.println("||||||||||||||||");
+                                System.out.println("||||||||||||||||||||||");
+                                System.out.println("|||||||||||||||||||||||||||||| 100%");
+                                System.out.println("Thêm thông tin nhân viên hoàn tất!!!!!");
+                                System.out.println();
+                                displayMainMenu();
                                 break;
                             } else if (choose1 == 3) {
-
+                                employeeService.editEmployee();
+                                System.out.println();
+                                displayMainMenu();
                                 break;
                             } else if (choose1 == 4) {
+                                System.out.println("====================Chào mừng về lại Menu Chính====================");
                                 displayMainMenu();
                                 break;
                             } else if (choose1 > 4) {
