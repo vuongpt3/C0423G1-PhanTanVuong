@@ -6,6 +6,6 @@ import java.util.ArrayList;
 
 public interface ICustomerRepository extends Repository {
    ArrayList<Customer> display();
-   void addCustomer();
-   void editCustomer();
+   void addCustomer( Customer customer);
+   void editCustomer(String id,Customer editCustomer);
 }

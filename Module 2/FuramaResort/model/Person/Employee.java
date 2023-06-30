@@ -3,9 +3,9 @@ package FuramaResort.model.Person;
 public class Employee extends Person {
     private String qualification;
     private String position;
-    private String salary;
+    private int salary;
 
-    public Employee(String id, String fullName, String dateOfBirth, String gender, String idNumber, String phoneNumber, String email, String qualification, String position, String salary) {
+    public Employee(String id, String fullName, String dateOfBirth, String gender, String idNumber, String phoneNumber, String email, String qualification, String position, int salary) {
         super(id, fullName, dateOfBirth, gender, idNumber, phoneNumber, email);
         this.qualification = qualification;
         this.position = position;
@@ -28,11 +28,11 @@ public class Employee extends Person {
         return position;
     }
 
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 

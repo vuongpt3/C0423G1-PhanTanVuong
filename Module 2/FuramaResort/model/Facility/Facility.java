@@ -1,12 +1,13 @@
 package FuramaResort.model.Facility;
 
 public abstract class Facility {
-    protected String serviceCode;
-    protected String serviceName;
-    protected double area;
-    protected double rentalCost;
-    protected int maxOccupancy;
-    protected String rentalType;
+    private String serviceCode;
+    private String serviceName;
+
+    private double area;
+    private double rentalCost;
+    private int maxOccupancy;
+    private String rentalType;
 
     // Constructor
     public Facility(String serviceCode, String serviceName, double area, double rentalCost,

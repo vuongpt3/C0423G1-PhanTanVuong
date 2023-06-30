@@ -49,7 +49,7 @@ public class EmployeeService implements IEmployeeService {
         String email;
         String qualification;
         String position;
-        String salary;
+        int salary;
         while (true) {
             try {
                 System.out.println("Nhập ID nhân viên ( Định dạng NV-XXXX");
@@ -84,34 +84,63 @@ public class EmployeeService implements IEmployeeService {
             int monnth1 = Integer.parseInt(scanner.nextLine());
             System.out.println("Nhập năm");
             int year = Integer.parseInt(scanner.nextLine());
+            date = date1 + "-" + monnth1 + "-" + year;
             try {
-                if (year1 - year > 18 && (date1 > 0 || date1 < 32) && (monnth1 > 0 || monnth1 < 13) && year > 0){
-                    date = (date1 + "-" + monnth1 + "-"+ year);
+                if (year1 - year > 18 && date1 > 0 && date1 < 32 && monnth1 > 0 && monnth1 < 13 && year > 0){
                     break;
                 }
-                throw new FormatException("Lỗi nhập , em gái chưa 18 hoặc nhập sai ngày tháng năm , Nhập lại");
+                throw new FormatException("======Lỗi nhập , Em gái này chưa 18 hoặc nhập sai ngày tháng năm , Nhập lại=====");
             } catch (FormatException e) {
                 System.out.println(e.getMessage());
             }
         }
 
-
-//        System.out.println("Nhập giới tính nhân viên");
-//         gender = scanner.nextLine();
-//        System.out.println("Nhập CMND nhân viên");
-//         idNumber = scanner.nextLine();
-//        System.out.println("Nhập số điện thoại nhân viên");
-//         phoneNumber = scanner.nextLine();
-//        System.out.println("Nhập Email nhân viên");
-//         email = scanner.nextLine();
-//        System.out.println("Nhập trình độ nhân viên");
-//         qualification = scanner.nextLine();
-//        System.out.println("Nhập vị trí của nhân viên");
-//         position = scanner.nextLine();
-//        System.out.println("Nhập lương của nhân viên");
-//         salary = scanner.nextLine();
-//        Employee employee = new Employee(id, name, date, gender, idNumber, phoneNumber, email, qualification, position, salary);
-//        employeeRepository.addEmployee(employee);
+        System.out.println("Nhập giới tính nhân viên");
+         gender = scanner.nextLine();
+        while (true){
+            System.out.println("Nhập CMND nhân viên");
+            try {
+                idNumber = scanner.nextLine();
+                if (idNumber.matches("^[0-9]{9}$") || idNumber.matches("^[0-9]{12}$")){
+                    break;
+                }
+                throw new FormatException("SỐ CMND không hợp lệ , vui lòng nhập lại");
+            } catch (FormatException e) {
+                throw new RuntimeException(e);
+            }
+        }
+       while (true){
+           System.out.println("Nhập số điện thoại nhân viên");
+           try {
+               phoneNumber = scanner.nextLine().trim();
+               if (phoneNumber.matches("^(0[0-9]{9})$")){
+                   break;
+               }
+               throw new FormatException("Số điện thoại không hợp lệ , Vui lòng nhập lại");
+           } catch (FormatException e) {
+               throw new RuntimeException(e);
+           }
+       }
+        System.out.println("Nhập Email nhân viên");
+         email = scanner.nextLine();
+        System.out.println("Nhập trình độ nhân viên");
+         qualification = scanner.nextLine();
+        System.out.println("Nhập vị trí của nhân viên");
+         position = scanner.nextLine();
+       while (true){
+           System.out.println("Nhập lương của nhân viên");
+           try {
+               salary = Integer.parseInt(scanner.nextLine().trim());
+               if (salary > 0 ){
+                   break;
+               }
+               throw new FormatException("Lương phải lớn hơn 0 , Nhập lại");
+           }catch (FormatException e){
+               throw new RuntimeException(e);
+           }
+       }
+        Employee employee = new Employee(id, name, date, gender, idNumber, phoneNumber, email, qualification, position, salary);
+        employeeRepository.addEmployee(employee);
     }
 
     @Override
@@ -192,7 +221,7 @@ public class EmployeeService implements IEmployeeService {
                     break;
                 case 9:
                     System.out.println("Mời nhập lương  mới thay thế cho " + employee.getFullName());
-                    String salaryNew = scanner.nextLine();
+                    int salaryNew = Integer.parseInt(scanner.nextLine());
                     employee.setSalary(salaryNew);
                     System.out.println("Chỉnh sửa lương cho nhân viên hoàn tất");
                     System.out.println(employee);

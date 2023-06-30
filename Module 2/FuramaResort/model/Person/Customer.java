@@ -3,7 +3,7 @@ package FuramaResort.model.Person;
 public class Customer extends Person {
     private String customerType;
     private String address;
-    public Customer(String id, String fullName, String dateOfBirth, String gender, String idNumber, String phoneNumber, String email) {
+    public Customer(String id, String fullName, String dateOfBirth, String gender, String idNumber, String phoneNumber, String email ,String customerType,String address) {
         super(id, fullName, dateOfBirth, gender, idNumber, phoneNumber, email);
         this.customerType = customerType;
         this.address = address;
@@ -28,8 +28,6 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                "customerType='" + customerType + '\'' +
-                ", address='" + address + '\'' +
                 ", id='" + id + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
@@ -37,6 +35,8 @@ public class Customer extends Person {
                 ", idNumber='" + idNumber + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
+                "customerType='" + customerType + '\'' +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

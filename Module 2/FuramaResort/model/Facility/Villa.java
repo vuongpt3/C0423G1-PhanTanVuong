@@ -36,20 +36,20 @@ public class Villa extends Facility {
         this.numberOfFloors = numberOfFloors;
     }
 
-    @Override
-    public String toString() {
-        return "Villa{" +
-                "roomStandard='" + roomStandard + '\'' +
-                ", poolArea=" + poolArea +
-                ", numberOfFloors=" + numberOfFloors +
-                ", serviceCode='" + serviceCode + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", area=" + area +
-                ", rentalCost=" + rentalCost +
-                ", maxOccupancy=" + maxOccupancy +
-                ", rentalType='" + rentalType + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Villa{" +
+//                "roomStandard='" + roomStandard + '\'' +
+//                ", poolArea=" + poolArea +
+//                ", numberOfFloors=" + numberOfFloors +
+//                ", serviceCode='" + serviceCode + '\'' +
+//                ", serviceName='" + serviceName + '\'' +
+//                ", area=" + area +
+//                ", rentalCost=" + rentalCost +
+//                ", maxOccupancy=" + maxOccupancy +
+//                ", rentalType='" + rentalType + '\'' +
+//                '}';
+//    }
 
     public String getAdditionalDetails() {
         return "Room Standard: " + roomStandard + ", Pool Area: " + poolArea + ", Number of Floors: " + numberOfFloors;
