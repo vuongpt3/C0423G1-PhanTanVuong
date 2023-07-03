@@ -1,12 +1,15 @@
 package FuramaResort.controller;
 
+import FuramaResort.service.CustomerService;
 import FuramaResort.service.EmployeeService;
+import FuramaResort.service.ICustomerService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class FuramaController {
     EmployeeService employeeService = new EmployeeService();
+    ICustomerService customerService = new CustomerService();
     Scanner scanner = new Scanner(System.in);
     boolean flag = true;
 
@@ -74,14 +77,14 @@ public class FuramaController {
                                     "\n4. Return to Menu");
                             int choose2 = Integer.parseInt(scanner.nextLine());
                             if (choose2 == 1) {
-
+                                customerService.display();
                                 break;
                             } else if (choose2 == 2) {
-
+                                customerService.addCustomer();
                                 break;
 
                             } else if (choose2 == 3) {
-
+                                customerService.editCustomer();
                                 break;
                             } else if (choose2 == 4) {
                                 displayMainMenu();

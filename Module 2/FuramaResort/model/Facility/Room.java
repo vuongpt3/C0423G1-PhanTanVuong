@@ -16,18 +16,18 @@ public class Room extends Facility {
         this.freeService = freeService;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Room{" +
-//                "freeService='" + freeService + '\'' +
-//                ", serviceCode='" + serviceCode + '\'' +
-//                ", serviceName='" + serviceName + '\'' +
-//                ", area=" + area +
-//                ", rentalCost=" + rentalCost +
-//                ", maxOccupancy=" + maxOccupancy +
-//                ", rentalType='" + rentalType + '\'' +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Room{" +
+                "serviceCode='" + getServiceCode() + '\'' +
+                ", serviceName='" + getServiceName() + '\'' +
+                ", area=" + getArea() +
+                ", rentalCost=" + getRentalCost() +
+                ", maxOccupancy=" + getMaxOccupancy() +
+                ", rentalType='" + getRentalType() + '\'' +
+                "freeService='" + freeService + '\'' +
+                '}';
+    }
 
     public String getAdditionalDetails() {
         return "Free Service: " + freeService;

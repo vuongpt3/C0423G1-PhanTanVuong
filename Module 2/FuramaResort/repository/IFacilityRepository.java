@@ -9,5 +9,8 @@ import java.util.Map;
 public interface IFacilityRepository extends Repository {
     Map<Facility,Integer> getFacilities();
     void addFacility();
+    void addHouse();
+    void addRoom();
+    void addVilla();
     void editFacility();
 }
