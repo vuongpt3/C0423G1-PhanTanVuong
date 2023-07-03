@@ -3,9 +3,10 @@ package FuramaResort.repository;
 import FuramaResort.model.Booking;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface IBookingRepository extends Repository{
-    ArrayList<Booking> display();
+    Map<Booking,Integer> display();
     void addBooking();
     void editBooking();
 }

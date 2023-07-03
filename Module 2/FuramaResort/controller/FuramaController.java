@@ -1,8 +1,6 @@
 package FuramaResort.controller;
 
-import FuramaResort.service.CustomerService;
-import FuramaResort.service.EmployeeService;
-import FuramaResort.service.ICustomerService;
+import FuramaResort.service.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,6 +8,7 @@ import java.util.Scanner;
 public class FuramaController {
     EmployeeService employeeService = new EmployeeService();
     ICustomerService customerService = new CustomerService();
+    IFacilityService facilityService = new FacilityService();
     Scanner scanner = new Scanner(System.in);
     boolean flag = true;
 
@@ -107,10 +106,13 @@ public class FuramaController {
                                     "\n4. Return to Menu");
                             int choose3 = Integer.parseInt(scanner.nextLine());
                             if (choose3 == 1) {
-
+                                facilityService.display();
+                                displayMainMenu();
                                 break;
                             } else if (choose3 == 2) {
-
+                                facilityService.addFacility();
+                                facilityService.display();
+                                displayMainMenu();
                                 break;
                             } else if (choose3 == 3) {
 
